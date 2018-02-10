@@ -26,3 +26,18 @@ people = people.concat(otherpeople);
 document.write(people);
 
 br();
+
+// swaggity swooty obejct
+new function() {
+  this.name = "";
+  this.setName = function(name) {
+    this.name = name;
+    return this;
+  },
+  this.introduce = function() {
+    document.write("Hello, I am " + this.name);
+    return this;
+  }
+}().setName("John").introduce();
+
+br();
