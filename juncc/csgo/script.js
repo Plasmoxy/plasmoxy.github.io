@@ -14,7 +14,7 @@ async function kys() { // create async task for rendering
     await sleep(1000);
     maincontainer.style.background = "red"
     maincontainer.style.color = "black"
-    text.style.fontSize = "20em";
+    text.style.fontSize = "18em";
     text.innerHTML = "JEBAC";
     await sleep(1000);
     maincontainer.style.background = "black"
