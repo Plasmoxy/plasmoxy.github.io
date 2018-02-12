@@ -14,12 +14,12 @@ async function kys() { // create async task for rendering
     await sleep(1000);
     maincontainer.style.background = "red"
     maincontainer.style.color = "black"
-    text.style.fontSize = "5em";
+    text.style.fontSize = "16em";
     text.innerHTML = "JEBAC";
     await sleep(1000);
     maincontainer.style.background = "black"
     maincontainer.style.color = "white"
-    text.style.fontSize = "13em";
+    text.style.fontSize = "20em";
     text.innerHTML = "CSGO";
     await sleep(1000);
     maincontainer.style.color = "#ff00c3"
