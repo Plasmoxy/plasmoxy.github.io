@@ -23,7 +23,7 @@ addEventListener("click", function() {
 
 function setup() {
   createCanvas(windowWidth-15, windowHeight-20);
-  if (!wentFullScreen) setInterval(function() {
+  if (wentFullScreen) setInterval(function() {
     if(direction) {
       if (s<maxsize)
         s+=speed;
