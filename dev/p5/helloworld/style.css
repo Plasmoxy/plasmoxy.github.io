@@ -1,3 +1,9 @@
 body {
   background: #111111;
 }
+
+#info {
+  color: rgb(255, 0, 168);
+  font-family: sans-serif;
+  font-size: 10em;
+}

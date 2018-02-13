@@ -1,8 +1,10 @@
 var s = 50;
-var speed = 0;
+var speed = 3;
 var direction = false;
 var minSize = 10, maxSize = 200;
 var wentFullScreen = false;
+
+var infoDiv = document.getElementById("info");
 
 function update() {
   if(direction) {
@@ -17,6 +19,7 @@ function update() {
 addEventListener("click", function() {
   if (!wentFullScreen) {
     wentFullScreen = true;
+    infoDiv.style.display = "none";
 
     var el = document.documentElement, rfs =
       el.requestFullScreen
@@ -33,7 +36,6 @@ function setup() {
 
   if (wentFullScreen) {
     createCanvas(windowWidth-15, windowHeight-20);
-    speed = windowWidth / 1000;
   }
   else createCanvas(0,0);
 
