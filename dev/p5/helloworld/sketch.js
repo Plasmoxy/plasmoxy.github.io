@@ -1,7 +1,7 @@
 var s = 10;
 var speed = 2;
 var direction = false;
-var minSize = 10, maxSize = 200;
+var minSize = 0, maxSize = 200;
 var wentFullScreen = false;
 
 var canvasElement, messageDiv;
