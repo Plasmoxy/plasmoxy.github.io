@@ -1,8 +1,9 @@
-var s = 10;
+var s = 50;
 var speed = 2;
 var direction = false;
 var minSize = 10, maxSize = 200;
 var wentFullScreen = false;
+/*
 
 addEventListener("click", function() {
   if (!wentFullScreen) {
@@ -18,7 +19,7 @@ addEventListener("click", function() {
     setTimeout(setup, 1000);
   }
 });
-
+*/
 function setup() {
   createCanvas(windowWidth-15, windowHeight-20);
   setInterval(function() {
