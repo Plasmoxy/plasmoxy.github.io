@@ -9,8 +9,6 @@ var canvasElement, messageDiv;
 addEventListener("click", function() {
   if (!wentFullScreen) {
     wentFullScreen = true;
-    canvasElement.style.display = "";
-    messageDiv.style.display = "none";
 
     var el = document.documentElement, rfs =
       el.requestFullScreen
@@ -24,10 +22,6 @@ addEventListener("click", function() {
 });
 
 function setup() {
-  canvasElement = document.getElementsByTagName("canvas")[0];
-  messageDiv = document.getElementById("message");
-  if (!wentFullScreen) canvasElement.style.display = "none";
-
   createCanvas(windowWidth-15, windowHeight-20);
   setInterval(function() {
     if(direction) {
