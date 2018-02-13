@@ -16,6 +16,10 @@ function update() {
   }
 }
 
+addEventListener("fullscreenchange", function() {
+  console.log("XD");
+});
+
 addEventListener("click", function() {
   if (!wentFullScreen) {
     wentFullScreen = true;
