@@ -1,10 +1,8 @@
 var s = 10;
 var speed = 2;
 var direction = false;
-var minSize = 1, maxSize = 200;
+var minSize = 10, maxSize = 200;
 var wentFullScreen = false;
-
-var canvasElement, messageDiv;
 
 addEventListener("click", function() {
   if (!wentFullScreen) {
@@ -17,18 +15,18 @@ addEventListener("click", function() {
     ;
     rfs.call(el);
 
-    setTimeout(setup, 500);
+    setTimeout(setup, 1000);
   }
 });
 
 function setup() {
   createCanvas(windowWidth-15, windowHeight-20);
-  if (wentFullScreen) setInterval(function() {
+  setInterval(function() {
     if(direction) {
-      if (s<maxsize)
+      if (s<100)
         s+=speed;
     } else {
-      if (s>minsize)
+      if (s>10)
       s-=speed;
     }
   }, 1);
