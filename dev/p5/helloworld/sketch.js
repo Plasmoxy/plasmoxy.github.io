@@ -1,7 +1,7 @@
 var s = 10;
 var speed = 2;
 var direction = false;
-var minSize = 0, maxSize = 200;
+var minSize = 1, maxSize = 200;
 var wentFullScreen = false;
 
 var canvasElement, messageDiv;
@@ -23,7 +23,7 @@ addEventListener("click", function() {
 
 function setup() {
   createCanvas(windowWidth-15, windowHeight-20);
-  setInterval(function() {
+  if (!wentFullScreen) setInterval(function() {
     if(direction) {
       if (s<maxsize)
         s+=speed;
