@@ -4,9 +4,13 @@ var direction = false;
 var minSize = 10, maxSize = 200;
 var wentFullScreen = false;
 
+var canvasElement, messageDiv;
+
 addEventListener("click", function() {
   if (!wentFullScreen) {
     wentFullScreen = true;
+    canvasElement.style.display = "";
+    messageDiv.style.display = "none";
 
     var el = document.documentElement, rfs =
       el.requestFullScreen
@@ -20,6 +24,10 @@ addEventListener("click", function() {
 });
 
 function setup() {
+  canvasElement = document.getElementsByTagName("canvas")[0];
+  messageDiv = document.getElementById("message");
+  if (!wentFullScreen) canvasElement.style.display = "none";
+
   createCanvas(windowWidth-15, windowHeight-20);
   setInterval(function() {
     if(direction) {
@@ -34,6 +42,7 @@ function setup() {
 
 function draw() {
   background("#111111");
+  fill("#00ffd9");
   ellipse(mouseX,mouseY,s,s);
 }
 
