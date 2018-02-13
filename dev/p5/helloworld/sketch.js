@@ -1,5 +1,5 @@
 var s = 50;
-var speed = 2;
+var speed = 30;
 var direction = false;
 var minSize = 10, maxSize = 200;
 var wentFullScreen = false;
@@ -24,7 +24,7 @@ function setup() {
   createCanvas(windowWidth-15, windowHeight-20);
   setInterval(function() {
     if(direction) {
-      if (s<100)
+      if (s<400)
         s+=speed;
     } else {
       if (s>10)
