@@ -2,6 +2,22 @@ var s = 10;
 var speed = 2;
 var direction = false;
 var minSize = 10, maxSize = 200;
+var wentFullScreen = false;
+
+addEventListener("click", function() {
+  if (!wentFullScreen) {
+    wentFullScreen = true;
+
+    var el = document.documentElement, rfs =
+      el.requestFullScreen
+      || el.webkitRequestFullScreen
+      || el.mozRequestFullScreen
+    ;
+    rfs.call(el);
+
+    setTimeout(setup, 500);
+  }
+});
 
 function setup() {
   createCanvas(windowWidth-15, windowHeight-20);
