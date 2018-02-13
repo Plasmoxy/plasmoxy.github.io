@@ -1,9 +1,18 @@
 var s = 50;
-var speed = 30;
+var speed = 1;
 var direction = false;
 var minSize = 10, maxSize = 200;
 var wentFullScreen = false;
-/*
+
+function update() {
+  if(direction) {
+    if (s<maxSize)
+      s+=speed;
+  } else {
+    if (s>minSize)
+    s-=speed;
+  }
+}
 
 addEventListener("click", function() {
   if (!wentFullScreen) {
@@ -19,18 +28,11 @@ addEventListener("click", function() {
     setTimeout(setup, 1000);
   }
 });
-*/
+
 function setup() {
-  createCanvas(windowWidth-15, windowHeight-20);
-  setInterval(function() {
-    if(direction) {
-      if (s<400)
-        s+=speed;
-    } else {
-      if (s>10)
-      s-=speed;
-    }
-  }, 1);
+  if (wentFullScreen) createCanvas(windowWidth-15, windowHeight-20);
+  else createCanvas(0,0);
+  if (!wentFullScreen) setInterval(update, 1);
 }
 
 function draw() {
