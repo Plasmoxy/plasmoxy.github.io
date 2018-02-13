@@ -20,7 +20,7 @@ addEventListener("click", function() {
 });
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth-15, windowHeight-20);
   setInterval(function() {
     if(direction) {
       if (s<100)
