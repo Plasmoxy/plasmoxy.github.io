@@ -25,10 +25,10 @@ function setup() {
   createCanvas(windowWidth-15, windowHeight-20);
   setInterval(function() {
     if(direction) {
-      if (s<100)
+      if (s<maxsize)
         s+=speed;
     } else {
-      if (s>10)
+      if (s>minsize)
       s-=speed;
     }
   }, 1);
