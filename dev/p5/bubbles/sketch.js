@@ -1,7 +1,6 @@
 var list = new Array();
 var li = 0;
 
-var pressActive = false;
 var speed = 5;
 
 function bubble(stx,sty) {
@@ -41,7 +40,7 @@ function draw() {
    }
 }
 
-function mousePressed() {
+function touchStarted() {
    add();
 }
 
