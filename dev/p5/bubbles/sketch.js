@@ -7,9 +7,9 @@ var speed = 5;
 function bubble(stx,sty) {
    this.x = stx;
    this.y = sty;
-   this.r = 200;
+   this.r = 100;
    this.draw = function() {
-      fill("red");
+      fill("white");
       ellipse(this.x, this.y, this.r, this.r);
    }
 }
@@ -33,7 +33,7 @@ function setup() {
 
 function draw() {
    clear();
-   fill(0);
+   fill("white");
    textSize(100);
    text(li, 100, 100);
    for (i=0;i<list.length;i++) {
