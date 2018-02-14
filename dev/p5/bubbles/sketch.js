@@ -38,14 +38,20 @@ function draw() {
    clear();
 
    fill("white");
+   textSize(30);
+   text("Bubbles by Plasmoxy <p5.js> " + (MOBILE ? "[MOBILE]" : "[PC]" ), 50, 50);
    textSize(100);
-   text(""+ (MOBILE ? "[MOBILE] " : "[PC] " ) + bubbles.length, 100, 100);
+   text("Bubbles: "+ bubbles.length, 50, 150);
 
    bubbles.forEach(function(a,i) {
+     if (a.y > windowHeight) {
+       bubbles.splice(bubbles.indexOf(a), 1);
+     }
      a.draw();
    });
 
-   if (bubbles[0]) text(""+parseInt(bubbles[bubbles.length-1].x)+"  "+parseInt(bubbles[bubbles.length-1].y), 100, 300);
+   textSize(50);
+   if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", 50, 230);
 }
 
 function mousePressed(){
