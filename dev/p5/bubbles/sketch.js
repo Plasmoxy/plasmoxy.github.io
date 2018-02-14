@@ -1,3 +1,9 @@
+var list = new Array();
+var li = 0;
+
+var pressActive = false;
+var speed = 5;
+
 function bubble(stx,sty) {
    this.x = stx;
    this.y = sty;
@@ -14,13 +20,15 @@ function add() {
    li++;
 }
 
-var list = new Array();
-var pressActive = false;
-
-var li = 0;
+function move() {
+  for (i=0;i<list.length;i++) {
+     list[i].y += speed;
+  }
+}
 
 function setup() {
   createCanvas(windowWidth-15, windowHeight-20);
+  setInterval(move, 1);
 }
 
 function draw() {
@@ -34,7 +42,7 @@ function draw() {
 }
 
 function mousePressed() {
-   li = li+1;
+   add();
 }
 
 function mouseReleased() {}
