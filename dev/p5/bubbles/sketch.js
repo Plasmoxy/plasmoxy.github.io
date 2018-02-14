@@ -59,7 +59,7 @@ window.addEventListener('load', function(){
     document.body.addEventListener('touchstart', function(e){ // only on mobile
         var t = e.changedTouches;
         for(i=0; i<t.length; i++) {
-          addBubble(t.pageX, t.pageY);
+          addBubble(t[i].pageX, t[i].pageY);
         }
     }, false)
 
