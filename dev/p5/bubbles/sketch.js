@@ -40,14 +40,14 @@ function draw() {
    fill("#E91E63");
    textSize(30);
    text("Bubbles by Plasmoxy <p5.js> " + (MOBILE ? "[MOBILE]" : "[PC]" ), 50, 50);
-   
+
    textSize(100);
    fill("#FFEB3B");
    text("Bubbles: "+ bubbles.length, 50, 150);
 
    textSize(50);
    fill("white");
-   if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", 50, 230);
+   //if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", 50, 230);
 
    bubbles.forEach(function(a,i) {
      if (a.y > windowHeight) {
