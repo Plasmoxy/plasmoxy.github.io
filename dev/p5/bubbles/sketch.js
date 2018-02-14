@@ -40,25 +40,22 @@ function draw() {
    }
 }
 
-var released = true;
+window.addEventListener('load', function(){ // on page load
+
+    document.body.addEventListener('touchstart', function(e){
+        alert(e.changedTouches[0].pageX) // alert pageX coordinate of touch point
+    }, false)
+
+}, false)
 
 function mouseReleased(){
-	released = true;
-	return false;
+
 }
 
 function mousePressed(){
 
-	if(!released){
-		return;
-	}
-	released = false;
-
-	//rest of your code
-
-  add();
 }
 
 function touchStarted() {
-  return false;
+
 }
