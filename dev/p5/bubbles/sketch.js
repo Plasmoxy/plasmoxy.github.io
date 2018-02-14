@@ -1,3 +1,6 @@
+var ua = navigator.userAgent.toLowerCase();
+var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+
 var list = new Array();
 var li = 0;
 
@@ -53,9 +56,11 @@ function mouseReleased(){
 }
 
 function mousePressed(){
-
+  if (!isAndroid) {
+    add();
+  }
 }
 
 function touchStarted() {
-
+  if (isAndroid) add();
 }
