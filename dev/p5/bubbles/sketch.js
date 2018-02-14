@@ -1,5 +1,8 @@
 /* p5.js Bubbles by Plasmoxy */
 
+var wentFullScreen = false;
+var infoDiv = document.getElementById("info");
+
 var bubbles = new Array();
 var li = 0;
 
@@ -30,7 +33,8 @@ function move() {
 }
 
 function setup() {
-  createCanvas(windowWidth-15, windowHeight-20);
+  if (wentFullScreen) createCanvas(windowWidth-15, windowHeight-20);
+  else createCanvas(0,0);
   setInterval(move, 1000/60);
 }
 
@@ -72,4 +76,20 @@ window.addEventListener('load', function(){
         }
     }, false)
 
-}, false)
+}, false);
+
+addEventListener("click", function() {
+  if (!wentFullScreen) {
+    wentFullScreen = true;
+    infoDiv.style.display = "none";
+
+    var el = document.documentElement, rfs =
+      el.requestFullScreen
+      || el.webkitRequestFullScreen
+      || el.mozRequestFullScreen
+    ;
+    rfs.call(el);
+
+    setTimeout(setup, 1000);
+  }
+});
