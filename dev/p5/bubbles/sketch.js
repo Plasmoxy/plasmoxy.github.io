@@ -40,8 +40,21 @@ function draw() {
    }
 }
 
-function touchStarted() {
-   add();
+var released = true;
+
+function mouseReleased(){
+	released = true;
+	return false;
 }
 
-function mouseReleased() {}
+function mousePressed(){
+
+	if(!released){
+		return;
+	}
+	released = false;
+
+	//rest of your code
+
+  add();
+}
