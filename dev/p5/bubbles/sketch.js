@@ -55,7 +55,7 @@ function mouseReleased(){}
 window.addEventListener('load', function(){
 
     document.body.addEventListener('touchstart', function(e){ // only on mobile
-        // example : alert(e.changedTouches[0].pageX) // alert pageX coordinate of touch point
+        alert(e.changedTouches[0].pageX) // alert pageX coordinate of touch point
         e.changedTouches.forEach(function (a,i) {
           addBubble(a.pageX, a.pageY);
         });
