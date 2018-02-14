@@ -1,10 +1,12 @@
-var ua = navigator.userAgent.toLowerCase();
-var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+/* p5.js Bubbles by Plasmoxy */
 
-var list = new Array();
+var bubbles = new Array();
 var li = 0;
 
-var speed = 10;
+var pxPerSec = 1/60;
+var speed = 500 * pxPerSec;
+
+var MOBILE = window.mobileCheck();
 
 function bubble(stx,sty) {
    this.x = stx;
@@ -16,16 +18,15 @@ function bubble(stx,sty) {
    }
 }
 
-function add() {
-   var a = new bubble(mouseX, mouseY);
-   list[li] = a;
-   li++;
+function addBubble(x, y) {
+   var a = new bubble(x, y);
+   bubbles.push(a);
 }
 
 function move() {
-  for (i=0;i<list.length;i++) {
-     list[i].y += speed;
-  }
+  bubbles.forEach(function(a,i) {
+    a.y += speed;
+  });
 }
 
 function setup() {
@@ -35,24 +36,29 @@ function setup() {
 
 function draw() {
    clear();
+
    fill("white");
    textSize(100);
-   text(li, 100, 100);
-   for (i=0;i<list.length;i++) {
-      list[i].draw();
-   }
+   text(""+ (MOBILE ? "[MOBILE] " : "[PC] " ) + bubbles.length, 100, 100);
+
+   bubbles.forEach(function(a,i) {
+     a.draw();
+   });
 }
 
 function mousePressed(){
-  if (!isAndroid) {
-    add();
-  }
-}
-
-function touchStarted() {
-  if (isAndroid) {
-    add();
-  }
+  if (!MOBILE) addBubble(mouseX, mouseY); // ignore mouse on mobile
 }
 
 function mouseReleased(){}
+
+window.addEventListener('load', function(){
+
+    document.body.addEventListener('touchstart', function(e){ // only on mobile
+        // example : alert(e.changedTouches[0].pageX) // alert pageX coordinate of touch point
+        e.changedTouches.forEach(function (a,i) {
+          addBubble(a.pageX, a.pageY);
+        });
+    }, false)
+
+}, false)
