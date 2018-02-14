@@ -44,6 +44,8 @@ function draw() {
    bubbles.forEach(function(a,i) {
      a.draw();
    });
+
+   if (bubbles[0]) text(""+parseInt(bubbles[bubbles.length-1].x)+"  "+parseInt(bubbles[bubbles.length-1].y), 100, 300);
 }
 
 function mousePressed(){
