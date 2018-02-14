@@ -56,10 +56,7 @@ window.addEventListener('load', function(){
 
     document.body.addEventListener('touchstart', function(e){ // only on mobile
         alert(e.changedTouches[0].pageX) // alert pageX coordinate of touch point
-        console.log("TOUCHE");
-        e.changedTouches.forEach(function (a,i) {
-          addBubble(a.pageX, a.pageY);
-        });
+        console.log(e.changedTouches.length);
     }, false)
 
 }, false)
