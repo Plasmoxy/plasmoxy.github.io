@@ -58,3 +58,7 @@ function mousePressed(){
 
   add();
 }
+
+function touchStarted() {
+  return false;
+}
