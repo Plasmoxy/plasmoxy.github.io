@@ -4,7 +4,7 @@ var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
 var list = new Array();
 var li = 0;
 
-var speed = 5;
+var speed = 10;
 
 function bubble(stx,sty) {
    this.x = stx;
@@ -30,7 +30,7 @@ function move() {
 
 function setup() {
   createCanvas(windowWidth-15, windowHeight-20);
-  setInterval(move, 1);
+  setInterval(move, 1000/60);
 }
 
 function draw() {
@@ -41,10 +41,6 @@ function draw() {
    for (i=0;i<list.length;i++) {
       list[i].draw();
    }
-}
-
-function mouseReleased(){
-
 }
 
 function mousePressed(){
@@ -58,3 +54,5 @@ function touchStarted() {
     add();
   }
 }
+
+function mouseReleased(){}
