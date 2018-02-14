@@ -1,0 +1,23 @@
+body {
+   background-color: #111;
+}
+
+div.padding {
+   text-align: center;
+}
+
+span.colored {
+   display: block;
+   text-align: center;
+   color: #fff;
+   font-size: 5em;
+   margin: 1em;
+   padding: 1em;
+   border: 0.2em solid red;
+   border-radius: 0.2em;
+}
+
+span.colored:active {
+   background: red;
+   color: #111;
+}
