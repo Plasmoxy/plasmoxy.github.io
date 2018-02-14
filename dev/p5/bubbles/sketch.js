@@ -13,7 +13,7 @@ function bubble(stx,sty) {
    this.y = sty;
    this.r = 100;
    this.draw = function() {
-      fill("white");
+      fill("#18FFFF");
       ellipse(this.x, this.y, this.r, this.r);
    }
 }
@@ -37,11 +37,17 @@ function setup() {
 function draw() {
    clear();
 
-   fill("white");
+   fill("#E91E63");
    textSize(30);
    text("Bubbles by Plasmoxy <p5.js> " + (MOBILE ? "[MOBILE]" : "[PC]" ), 50, 50);
+   
    textSize(100);
+   fill("#FFEB3B");
    text("Bubbles: "+ bubbles.length, 50, 150);
+
+   textSize(50);
+   fill("white");
+   if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", 50, 230);
 
    bubbles.forEach(function(a,i) {
      if (a.y > windowHeight) {
@@ -49,9 +55,6 @@ function draw() {
      }
      a.draw();
    });
-
-   textSize(50);
-   if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", 50, 230);
 }
 
 function mousePressed(){
