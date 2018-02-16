@@ -3,7 +3,7 @@
 var wentFullScreen = false;
 var infoDiv = document.getElementById("info");
 
-var bubbles = new Array();
+var bubbles = [];
 var li = 0;
 
 var pxPerSec = 1/60;
@@ -47,7 +47,7 @@ function draw() {
 
    textSize(100);
    fill("#FFEB3B");
-   text("Bubbles: "+ bubbles.length, 50, 150);
+   text("Bubbles: "+ (bubbles.length-1), 50, 150);
 
    textSize(50);
    fill("white");
@@ -69,7 +69,7 @@ function mouseReleased(){}
 
 window.addEventListener('load', function(){
 
-    document.body.addEventListener('touchstart', function(e){ // only on mobile
+    if(MOBILE) document.body.addEventListener('touchstart', function(e){ // only on mobile
         var t = e.changedTouches;
         for(i=0; i<t.length; i++) {
           addBubble(t[i].pageX, t[i].pageY);
