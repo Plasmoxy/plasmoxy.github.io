@@ -4,10 +4,10 @@ var wentFullScreen = false;
 var infoDiv = document.getElementById("info");
 
 var bubbles = [];
-var li = 0;
-
 var pxPerSec = 1/60;
-var speed = 500 * pxPerSec;
+var speed = 200 * pxPerSec;
+
+var tscale;
 
 var MOBILE = window.mobileCheck();
 
@@ -15,14 +15,16 @@ function bubble(stx,sty) {
    this.x = stx;
    this.y = sty;
    this.r = 100;
+   this.color = [0, 0, 255];
    this.draw = function() {
-      fill("#18FFFF");
+      fill(this.color[0], this.color[1], this.color[2]);
       ellipse(this.x, this.y, this.r, this.r);
    }
 }
 
 function addBubble(x, y) {
    var a = new bubble(x, y);
+   a.color = [Math.random()*255,  Math.random()*255, Math.random()*255];
    bubbles.push(a);
 }
 
@@ -35,26 +37,35 @@ function move() {
 function setup() {
   if (wentFullScreen) createCanvas(windowWidth-15, windowHeight-20);
   else createCanvas(0,0);
+
+  tscale = windowWidth/64;
+
   setInterval(move, 1000/60);
 }
 
 function draw() {
+
+   var textpos = 50;
+   let textdiff = 10;
    clear();
 
    fill("#E91E63");
-   textSize(30);
-   text("Bubbles by Plasmoxy <p5.js> " + (MOBILE ? "[MOBILE]" : "[PC]" ), 50, 50);
+   textpos += 3*tscale + textdiff;
+   textSize(3*tscale);
+   text("Bubbles by Plasmoxy <p5.js> " + (MOBILE ? "[MOBILE]" : "[PC]" ), 50, textpos);
 
-   textSize(100);
+   textpos += 3*tscale + textdiff;
+   textSize(3*tscale);
    fill("#FFEB3B");
-   text("Bubbles: "+ (bubbles.length-1), 50, 150);
+   text("Bubbles: "+ (bubbles.length), 50, textpos);
 
-   textSize(50);
+   textpos += 3*tscale + textdiff;
+   textSize(3*tscale);
    fill("white");
-   //if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", 50, 230);
+   if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", 50, textpos);
 
    bubbles.forEach(function(a,i) {
-     if (a.y > windowHeight) {
+     if (a.y > windowHeight || isNaN(a.y)) {
        bubbles.splice(bubbles.indexOf(a), 1);
      }
      a.draw();
@@ -82,6 +93,7 @@ addEventListener("click", function() {
   if (!wentFullScreen) {
     wentFullScreen = true;
     infoDiv.style.display = "none";
+    bubbles = []; // reset bubbles so there isnt an NaN object in there
 
     var el = document.documentElement, rfs =
       el.requestFullScreen
