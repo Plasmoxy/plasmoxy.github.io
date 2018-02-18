@@ -12,3 +12,11 @@ p::selection {
   color:white;
   background:black;
 }
+
+p::before {
+  content: "\"";
+}
+
+p::after {
+  content: "\"";
+}
