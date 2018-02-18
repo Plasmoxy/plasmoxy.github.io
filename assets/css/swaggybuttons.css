@@ -26,8 +26,20 @@
   box-shadow: none;
 }
 
-.btn-primary.raised {
+.btn-primary.raisedGreen {
 	box-shadow: 0 3px 0 0 #95db00;
+}
+
+.btn-primary.raisedTeal {
+	box-shadow: 0 3px 0 0 #00dbc1;
+}
+
+.btn-primary.raisedCyan {
+	box-shadow: 0 3px 0 0 #00dacd;
+}
+
+.btn-primary.raisedVibrantRed {
+	box-shadow: 0 3px 0 0 #db0056;
 }
 
 .btn-primary.raised:active, .btn-primary.raised.active {
