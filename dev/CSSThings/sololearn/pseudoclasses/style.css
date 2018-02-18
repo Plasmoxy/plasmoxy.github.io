@@ -1,0 +1,14 @@
+.para p:first-child {
+  color:green;
+  text-decoration: underline;
+}
+
+.para p:last-child {
+  color:red;
+  text-decoration: overline;
+}
+
+p::selection {
+  color:white;
+  background:black;
+}
