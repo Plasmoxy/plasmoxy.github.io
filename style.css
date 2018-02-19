@@ -1,0 +1,18 @@
+body {
+  background-color: #0f0f0f;
+  color: white;
+}
+
+#roundcorners {
+    border-radius: 10px;
+    background: #0f0f0f;
+    padding: 15px;
+}
+
+.redhighlight {
+  color: rgb(255, 0, 92);
+}
+
+.cyanhighlight {
+  color:#00ffe0;
+}
