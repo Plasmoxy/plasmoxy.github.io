@@ -15,7 +15,7 @@ var graphConf = {
 
 var functions = [
   { f: function(x) {return x;}, clr: [255, 0, 0] },
-  { f: function(x) {return sin(x);}, clr: [0, 255, 0]},
+  { f: function(x) {return 4*sin(x);}, clr: [0, 255, 0]},
   { f: function(x) {return 1/x;}, clr: [0, 0, 255]},
   { f: function(x) {return tan(4*x);}, clr: [0, 255, 255]}
 ];
