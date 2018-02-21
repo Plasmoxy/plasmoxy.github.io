@@ -9,8 +9,12 @@ const before = `<!DOCTYPE html>
 
 <head>
   <title>STRUCTURE</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+
   <style>
     body {
+      font-family: 'Amatic SC', cursive;
       background: #333;
       color: white;
     }
@@ -26,12 +30,12 @@ const before = `<!DOCTYPE html>
 
     a {
       color: inherit;
-      font-size: 4em;
+      font-size: 6em;
       text-decoration: none;
     }
     a:hover {
       color: #ff006b;
-      font-size: 6em;
+      font-size: 8em;
     }
 
     .dir {
@@ -40,7 +44,7 @@ const before = `<!DOCTYPE html>
 
     .title {
       text-align: center;
-      font-size: 5em;
+      font-size: 8em;
       color: #333;
       background: #fc217d;
     }
