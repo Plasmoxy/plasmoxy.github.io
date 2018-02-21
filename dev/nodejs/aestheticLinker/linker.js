@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const folder = '../../js';
+const folder = '../../js/testing';
 
 const before = `<!DOCTYPE html>
 <html>
