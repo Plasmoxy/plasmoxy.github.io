@@ -8,4 +8,4 @@ setInterval(function() {
   } else {
     rainbow_hue = 0;
   }
-}, 30);
+}, 100);
