@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const folder = '../../js/testing';
+const folder = '../..';
 
 const before = `<!DOCTYPE html>
 <html>
@@ -11,11 +11,15 @@ const before = `<!DOCTYPE html>
   <title>STRUCTURE</title>
   <style>
     body {
-      text-align: center;
       background: #333;
       color: white;
     }
-    body > a {
+
+    .content {
+      margin: 3em 5em 5em 5em;
+    }
+
+    .content > a {
       transition: all 0.5s ease;
     }
 
@@ -34,6 +38,7 @@ const before = `<!DOCTYPE html>
     }
 
     .title {
+      text-align: center;
       font-size: 5em;
       color: #333;
       background: #fc217d;
@@ -42,10 +47,10 @@ const before = `<!DOCTYPE html>
 </head>
 
 <body>
-<div class="title"<span>` + path.resolve(folder).split(path.sep).pop() + `</span></div><br>
+<div class="content"><div class="title"<span>` + path.resolve(folder).split(path.sep).pop() + `</span></div><br>
 `;
 
-const after = `</body>
+const after = `</div></body>
 </html>`;
 
 var stuff = '';
