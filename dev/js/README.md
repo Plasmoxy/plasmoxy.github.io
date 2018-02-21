@@ -1,3 +1,0 @@
-# PmxyJSLearn
-
-ahahahah
