@@ -15,7 +15,7 @@ const before = `<!DOCTYPE html>
   <style>
     body {
       font-family: 'Amatic SC', cursive;
-      background: #333;
+      background: #111;
       color: white;
     }
 
@@ -45,7 +45,7 @@ const before = `<!DOCTYPE html>
     .title {
       text-align: center;
       font-size: 8em;
-      color: #333;
+      color: #111;
       background: #fc217d;
     }
   </style>
