@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const folder = '../../js/testing';
+const folder = '../..';
 
 const before = `<!DOCTYPE html>
 <html>
@@ -16,7 +16,8 @@ const before = `<!DOCTYPE html>
     }
 
     .content {
-      margin: 3em 5em 5em 5em;
+      margin: 3em 3em 3em 3em;
+      padding: 0em 5em 0em 5em;
     }
 
     .content > a {
