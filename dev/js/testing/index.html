@@ -6,11 +6,15 @@
   <title>STRUCTURE</title>
   <style>
     body {
-      text-align: center;
       background: #333;
       color: white;
     }
-    body > a {
+
+    .content {
+      margin: 3em 5em 5em 5em;
+    }
+
+    .content > a {
       transition: all 0.5s ease;
     }
 
@@ -29,6 +33,7 @@
     }
 
     .title {
+      text-align: center;
       font-size: 5em;
       color: #333;
       background: #fc217d;
@@ -37,9 +42,9 @@
 </head>
 
 <body>
-<div class="title"<span>testing</span></div><br>
+<div class="content"><div class="title"<span>testing</span></div><br>
 <a class="dir" href="helloworld">helloworld/</a><br>
 <a class="dir" href="readFile">readFile/</a><br>
 <a class="dir" href="readFileAgain">readFileAgain/</a><br>
-</body>
+</div></body>
 </html>
