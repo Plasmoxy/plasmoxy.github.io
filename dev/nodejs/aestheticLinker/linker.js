@@ -1,3 +1,6 @@
+/* Aesthetic linker js utility which creates cool folder structure index */
+/* generates html using nodejs */
+
 const fs = require('fs');
 const path = require('path');
 
@@ -22,6 +25,7 @@ const before = `<!DOCTYPE html>
     .content {
       margin: 3em 3em 3em 3em;
       padding: 0em 5em 0em 5em;
+      text-align: center;
     }
 
     .content > a {
@@ -29,17 +33,24 @@ const before = `<!DOCTYPE html>
     }
 
     a {
-      color: inherit;
+      display: inline-block;
+      color: #111;
       font-size: 6em;
       text-decoration: none;
+      margin: 0.1em 0.5em 0.1em 0.5em;
+      background: white;
+      border: solid white 10px;
+      border-radius: 50px;
     }
     a:hover {
-      color: #ff006b;
+      background: #ff006b;
+      border: solid #ff006b 10px;
       font-size: 8em;
     }
 
     .dir {
-      color: #09ece5;
+      background: #00fff0;
+      border: solid #00fff0 10px;
     }
 
     .title {
@@ -61,17 +72,21 @@ const after = `</div></body>
 var stuff = '';
 
 // first dirs
-fs.readdirSync(folder).forEach(file => {
+fs.readdirSync(folder).forEach(function(file, i) {
   var isDir = fs.lstatSync(folder + path.sep + file).isDirectory();
   if (file != "linker.js" && file != "index.html" && isDir)
-    stuff += '<a class="dir" ' + 'href="' + file + '">' + file + '/</a><br>' + '\n';
+    stuff += '<a class="dir" ' + 'href="' + file + '">' + file + '</a>';
+  if (i!=0 && i%3 == 0) stuff += '<br>';
+  stuff += '\n';
 });
 
 // then files
-fs.readdirSync(folder).forEach(file => {
+fs.readdirSync(folder).forEach(function(file, i) {
   var isDir = fs.lstatSync(folder + path.sep + file).isDirectory();
   if (file != "linker.js" && file != "index.html" && !isDir)
-    stuff += '<a ' + 'href="' + file + '">' + file + '</a><br>' + '\n';
+    stuff += '<a ' + 'href="' + file + '">' + file + '</a>';
+  if (i%3 == 0) stuff += '<br>';
+  stuff += '\n';
 });
 
 
