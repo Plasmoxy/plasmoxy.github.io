@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const folder = '../..';
+const folder = '../../js';
 
 const before = `<!DOCTYPE html>
 <html>
@@ -23,9 +23,10 @@ const before = `<!DOCTYPE html>
     }
 
     .content {
-      margin: 3em 3em 3em 3em;
-      padding: 0em 5em 0em 5em;
+      margin: 3em 0.1em 3em 0.1em;
+      padding: 0em 0.1em 0em 0.1em;
       text-align: center;
+      white-space: nowrap;
     }
 
     .content > a {
@@ -37,7 +38,7 @@ const before = `<!DOCTYPE html>
       color: #111;
       font-size: 6em;
       text-decoration: none;
-      margin: 0.1em 0.5em 0.1em 0.5em;
+      margin: 0.1em 0.3em 0.1em 0.3em;
       background: white;
       border: solid white 10px;
       border-radius: 50px;
@@ -85,9 +86,9 @@ fs.readdirSync(folder).forEach(function(file, i) {
   var isDir = fs.lstatSync(folder + path.sep + file).isDirectory();
   if (file != "linker.js" && file != "index.html" && !isDir)
     stuff += '<a ' + 'href="' + file + '">' + file + '</a>';
-  if (i%3 == 0) stuff += '<br>';
+  if (i!=0 && i%3 == 0) stuff += '<br>';
   stuff += '\n';
 });
 
 
-fs.writeFile('./index.html', before + stuff + after, undefined);
+fs.writeFile(path.resolve(folder) + '/index.html', before + stuff + after, undefined);
