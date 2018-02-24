@@ -4,7 +4,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const folder = '../../js';
+const folder = '../../sockets';
 
 const before = `<!DOCTYPE html>
 <html>
