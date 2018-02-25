@@ -23,7 +23,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       $(function () {
-        var socket = io.connect('https://plasmoxy.openode.io', { transports: ['websocket'], secure:'true'});
+        var socket = io.connect('https://plasmoxy.openode.io', { transports: ['websocket']});
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
           $('#m').val('');
