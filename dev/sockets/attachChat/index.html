@@ -27,11 +27,11 @@
         var socket = io.connect('https://plasmoxy.openode.io', { transports: ['websocket']});
         $('form').submit(function(){
           starttime = performance.now();
-          socket.emit('chat message', $('#m').val());
+          socket.emit('relay', $('#m').val());
           $('#m').val('');
           return false;
         });
-        socket.on('chat message', function(msg){
+        socket.on('relay', function(msg){
           endtime = performance.now();
           $('#messages').append($('<li>').text('[ ping = ' + Math.round(endtime-starttime) + ' ms ] ' + msg));
           window.scrollTo(0, document.body.scrollHeight);
