@@ -24,7 +24,7 @@
     <script>
       $(function () {
         var starttime, endtime, ping;
-        var socket = io.connect('https://plasmoxy.openode.io', { transports: ['websocket']}); // use only ws asd
+        var socket = io.connect('https://plasmoxy.openode.io', { transports: ['websocket']}); // use only ws asddd
         $('form').submit(function(){
           starttime = performance.now();
           socket.emit('chat message', $('#m').val());
