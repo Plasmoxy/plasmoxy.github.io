@@ -33,7 +33,7 @@
         });
         socket.on('chat message', function(msg){
           endtime = performance.now();
-          $('#messages').append($('<li>').text('[ ping = ' + (endtime-starttime) + '] ' + msg));
+          $('#messages').append($('<li>').text('[ ping = ' + Math.round(endtime-starttime) + ' ms ] ' + msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
       });
