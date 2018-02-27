@@ -7,7 +7,7 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-var controls = new THREE.OrbitControls(camera, renderer.domElement);
+//dvar controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 window.addEventListener('resize', function() {
   var width = window.innerWidth;
@@ -39,40 +39,78 @@ var canMove = {
   backward: true
 };
 
+// --- PROTOTYPES ---
 
-var roomGeometry = new THREE.BoxGeometry(3, 3, 3);
-var roomMaterial = new THREE.MeshBasicMaterial({
-  color: 0xFFFFFF,
-  wireframe: true
-});
-var room = new THREE.Mesh(roomGeometry, roomMaterial);
+function Room() {
+  this.geo = new THREE.BoxGeometry(3, 3, 3);
+  this.mat = new THREE.MeshBasicMaterial({
+    color: 0xFFFFFF,
+    wireframe: true
+  });
+  this.obj = new THREE.Mesh(this.geo, this.mat);
+  this.box = function() {
+    return new THREE.Box3().setFromObject( this.obj );
+  };
+  this.position = this.obj.position;
+  this.rotation = this.obj.rotation;
+};
 
-var cubeGeometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-var cubeMaterial = new THREE.MeshBasicMaterial({
-  color: 0x00ffc9,
-  wireframe: true
-});
-var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+function Cube() {
+  this.geo = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+  this.mat = new THREE.MeshBasicMaterial({
+    color: 0x00ffc9,
+    wireframe: true
+  });
+  this.obj = new THREE.Mesh(this.geo, this.mat);
+  this.box = function() {
+    return new THREE.Box3().setFromObject( this.obj );
+  };
 
-var geometry = new THREE.PlaneGeometry( 8, 8, 1);
-var material = new THREE.MeshBasicMaterial( {color: 0x555555, side: THREE.DoubleSide} );
-var plane = new THREE.Mesh( geometry, material );
+  this.position = this.obj.position;
+  this.rotation = this.obj.rotation;
+}
+
+function EdgeWireframe(augmentedObject, _color, _linewidth) {
+  this.geo = new THREE.EdgesGeometry( augmentedObject.geo );
+  this.mat = new THREE.LineBasicMaterial( { color: _color, linewidth: _linewidth } );
+  this.obj = new THREE.LineSegments( this.geo, this.mat );
+}
+
+function Plane() {
+  this.geo = new THREE.PlaneGeometry( 8, 8, 1);
+  this.mat =  new THREE.MeshBasicMaterial( {
+    color: 0x555555,
+    side: THREE.DoubleSide
+  });
+  this.obj =  new THREE.Mesh( this.geo, this.mat );
+  this.box = function() {
+    return new THREE.Box3().setFromObject( this.obj );
+  };
+
+  this.position = this.obj.position;
+  this.rotation = this.obj.rotation;
+}
+
+// -- OBJECTS --
+
+var room = new Room();
+var roomFrame = new EdgeWireframe(room, room.mat.color, 2);
+
+var cube = new Cube();
+var cubeFrame = new EdgeWireframe(cube, cube.mat.color, 2);
+var plane = new Plane();
+
+// move plane to bot
 plane.rotation.x = Math.PI/2;
-plane.position.y = room.position.y - (new THREE.Box3().setFromObject( room )).getSize().y/2 - 0.01;
+plane.position.y = room.position.y - room.box().getSize().y/2 - 0.01;
 
-var geo = new THREE.EdgesGeometry( roomGeometry );
-
-var mat = new THREE.LineBasicMaterial( { color: 0xFFFFFF, linewidth: 2 } );
-
-var wireframe = new THREE.LineSegments( geo, mat );
-
-scene.add( wireframe );
-
-scene.add(cube);
-scene.add( plane );
+scene.add(roomFrame.obj);
+scene.add(cube.obj);
+scene.add(plane.obj);
 
 //render
 function update() {
+
   if (keys.up && canMove.up) cube.position.y += 0.05;
   if (keys.down && canMove.down) cube.position.y -= 0.05;
   if (keys.right && canMove.right) cube.position.x += 0.05;
@@ -80,10 +118,8 @@ function update() {
   if (keys.forward && canMove.forward) cube.position.z -= 0.05;
   if (keys.backward && canMove.backward) cube.position.z += 0.05;
 
-  var cubeB = new THREE.Box3().setFromObject( cube );
-  var roomB = new THREE.Box3().setFromObject( room );
-  var c = cube.position, cs = cubeB.getSize();
-  var r = room.position, rs = roomB.getSize();
+  var c = cube.position, cs = cube.box().getSize();
+  var r = room.position, rs = room.box().getSize();
 
   if ( (c.x + cs.x/2) >= (r.x + rs.x/2) ) canMove.right = false;
   else canMove.right = true;
@@ -91,8 +127,21 @@ function update() {
   if ( (c.x - cs.x/2) <= (r.x - rs.x/2) ) canMove.left = false;
   else canMove.left = true;
 
-  if ( (c.y + cs.y/2) >= (r.y - rs.y/2) ) canMove.up = false;
+  if ( (c.y + cs.y/2) >= (r.y + rs.y/2) ) canMove.up = false;
   else canMove.up = true;
+
+  if ( (c.y - cs.y/2) <= (r.y - rs.y/2) ) canMove.down = false;
+  else canMove.down = true;
+
+  if ( (c.z - cs.z/2) <= (r.z - rs.z/2) ) canMove.forward = false;
+  else canMove.forward = true;
+
+  if ( (c.z + cs.z/2) >= (r.z + rs.z/2) ) canMove.backward = false;
+  else canMove.backward = true;
+
+  camera.position.x = cube.position.x + 0.5;
+  camera.position.y = cube.position.y;
+  camera.position.z = cube.position.z + 1;
 
 }
 
