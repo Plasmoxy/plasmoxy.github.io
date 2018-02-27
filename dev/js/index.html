@@ -107,6 +107,13 @@
 var rainbow_hue = 180;
 var dirs = document.getElementsByClassName("dir");
 var title = document.getElementById("titleText");
+var initContentWidth = 0;
+
+$(document).ready(function() {
+  setTimeout(function() {
+    initContentWidth = $('#content').width();
+  }, 500);
+});
 
 function oneLineLayout(state) {
   $('.nodeBreakOrdered').each(function(i, obj) {
@@ -134,7 +141,8 @@ setInterval(function() { // render thread
     rainbow_hue = 360;
   }
 
-  if (  $('#content').width() >= $(window).width()  ) {
+  // responsivity
+  if (  initContentWidth >= $(window).width()  ) {
     oneLineLayout(true);
   } else {
     oneLineLayout(false);
