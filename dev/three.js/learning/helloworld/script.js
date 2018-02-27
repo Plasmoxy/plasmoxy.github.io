@@ -1,4 +1,5 @@
 console.log('< BEGINNING script.js >');
+
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
 var renderer = new THREE.WebGLRenderer();
@@ -29,13 +30,23 @@ var keys = {
   s: false
 };
 
-var geometry = new THREE.BoxGeometry(1, 1, 1);
-var material = new THREE.MeshBasicMaterial({
+
+var roomGeometry = new THREE.BoxGeometry(2, 2, 2);
+var roomMaterial = new THREE.MeshBasicMaterial({
   color: 0xFFFFFF,
   wireframe: true
 });
-var cube = new THREE.Mesh(geometry, material);
+var room = new THREE.Mesh(roomGeometry, roomMaterial);
+
+var cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+var cubeMaterial = new THREE.MeshBasicMaterial({
+  color: 0x00ffc9,
+  wireframe: true
+});
+var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
 scene.add(cube);
+scene.add(room);
 
 //render
 function update() {

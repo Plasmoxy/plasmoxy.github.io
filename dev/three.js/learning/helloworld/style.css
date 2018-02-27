@@ -8,3 +8,9 @@ canvas {
   display: block;
   background: black;
 }
+
+#overlay {
+  position: fixed;
+  display: block;
+  z-index: 1;
+}
