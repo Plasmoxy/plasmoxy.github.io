@@ -125,7 +125,7 @@ var initContentWidth = 0;
 
 setTimeout(function() {
   initContentWidth = $('#content').width();
-}, 10);
+}, 500);
 
 function oneLineLayout(state) {
   $('.nodeBreakOrdered').each(function(i, obj) {
