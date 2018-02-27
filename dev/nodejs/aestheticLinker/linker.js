@@ -57,7 +57,7 @@ const before = `<!DOCTYPE html>
     a {
       display: inline-block;
       color: #111;
-      font-size: 500%;
+      font-size: 100px;
       text-decoration: none;
       margin: 0.1em 0.1em 0.1em 0.1em;
       padding: 0 0.1em 0 0.1em;
@@ -66,7 +66,7 @@ const before = `<!DOCTYPE html>
       border-radius: 50px;
     }
     a:hover {
-      font-size: 800%;
+      font-size: 200px;
     }
 
     .dir {
@@ -79,7 +79,7 @@ const before = `<!DOCTYPE html>
     }
 
     #titleText {
-      font-size: 800%;
+      font-size: 200px;
       color: #111;
       background: #111;
       border: solid #111 10px;
@@ -123,11 +123,9 @@ var dirs = document.getElementsByClassName("dir");
 var title = document.getElementById("titleText");
 var initContentWidth = 0;
 
-$(document).ready(function() {
-  setTimeout(function() {
-    initContentWidth = $('#content').width();
-  }, 500);
-});
+setTimeout(function() {
+  initContentWidth = $('#content').width();
+}, 10);
 
 function oneLineLayout(state) {
   $('.nodeBreakOrdered').each(function(i, obj) {
