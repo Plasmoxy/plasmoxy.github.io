@@ -7,7 +7,7 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-
+var controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 window.addEventListener('resize', function() {
   var width = window.innerWidth;
@@ -26,8 +26,8 @@ var keys = {
   down: false,
   left: false,
   right: false,
-  w: false,
-  s: false
+  forward: false,
+  backward: false
 };
 
 
@@ -45,8 +45,15 @@ var cubeMaterial = new THREE.MeshBasicMaterial({
 });
 var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
+var geometry = new THREE.PlaneGeometry( 3, 3, 1);
+var material = new THREE.MeshBasicMaterial( {color: 0x555555, side: THREE.DoubleSide} );
+var plane = new THREE.Mesh( geometry, material );
+plane.rotation.x = Math.PI/2;
+plane.position.y = -1.01;
+
 scene.add(cube);
 scene.add(room);
+scene.add( plane );
 
 //render
 function update() {
