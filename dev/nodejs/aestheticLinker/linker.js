@@ -82,10 +82,10 @@ const before = `<!DOCTYPE html>
       font-size: 8em;
       color: #111;
       background: #111;
-      border: solid #111 10%;
-      border-width: 0px 10% 0px 10%;
+      border: solid #111 10px;
+      border-width: 0px 10px 0px 10px;
       border-radius: 10px;
-      padding: 0 10% 0 10%;
+      padding: 0 30px 0 30px;
     }
 
     .titleEmoji {
@@ -114,6 +114,9 @@ const before = `<!DOCTYPE html>
 
 // exit centerd and content divs on beginning
 const after = `</div></div>
+
+<div style="height: 200px;"></div>
+
 <script>
 var rainbow_hue = 180;
 var dirs = document.getElementsByClassName("dir");
