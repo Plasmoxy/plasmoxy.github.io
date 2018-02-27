@@ -57,7 +57,7 @@ const before = `<!DOCTYPE html>
     a {
       display: inline-block;
       color: #111;
-      font-size: 5em;
+      font-size: 500%;
       text-decoration: none;
       margin: 0.1em 0.1em 0.1em 0.1em;
       padding: 0 0.1em 0 0.1em;
@@ -66,7 +66,7 @@ const before = `<!DOCTYPE html>
       border-radius: 50px;
     }
     a:hover {
-      font-size: 8em;
+      font-size: 800%;
     }
 
     .dir {
@@ -79,7 +79,7 @@ const before = `<!DOCTYPE html>
     }
 
     #titleText {
-      font-size: 8em;
+      font-size: 800%;
       color: #111;
       background: #111;
       border: solid #111 10px;
