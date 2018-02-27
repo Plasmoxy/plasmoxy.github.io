@@ -15,49 +15,97 @@
     }
 
     .content {
-      margin: 3em 0.1em 3em 0.1em;
+      margin: 1em 0.1em 1em 0.1em;
       padding: 0em 0.1em 0em 0.1em;
       text-align: center;
       white-space: nowrap;
     }
 
-    .content > a {
+    .content a{
       transition: all 0.5s ease;
     }
 
     a {
       display: inline-block;
       color: #111;
-      font-size: 6em;
+      font-size: 5em;
       text-decoration: none;
-      margin: 0.1em 0.3em 0.1em 0.3em;
+      margin: 0.1em 0.1em 0.1em 0.1em;
+      padding: 0 0.1em 0 0.1em;
       background: white;
       border: solid white 10px;
       border-radius: 50px;
     }
     a:hover {
-      background: #ff006b;
-      border: solid #ff006b 10px;
       font-size: 8em;
     }
 
     .dir {
-      background: #00fff0;
-      border: solid #00fff0 10px;
+      background: #111;
+      border: solid #111 10px;
     }
 
-    .title {
+    #title {
       text-align: center;
+    }
+
+    #titleText {
       font-size: 8em;
       color: #111;
-      background: #fc217d;
+      background: #111;
+      border: solid #111 10px;
+      border-width: 0px 10px 0px 10px;
+      border-radius: 10px;
+      padding: 0 2em 0 2em;
+    }
+
+    .titleEmoji {
+      height: 5px;
+      width: 5px;
+    }
+
+    #bacc {
+      transition: all 0.5s ease;
+      cursor: pointer;
+      width: 5em;
+    }
+    #bacc:hover {
+      width: 20em;
     }
   </style>
 </head>
 
 <body>
-<div class="content"><div class="title"<span>sockets</span></div><br>
-<a class="dir" href="attachChat">attachChat</a>
+<div class="content">
+  <div style="text-align: center;">
+    <img id="bacc" onclick="window.history.back();" src="/assets/img/bacc.jpg"/>
+  </div>
+  <div id="title"><span id="titleText"> 👏 sockets 👌</span>
+  </div><br>
+  <a class="dir" href="attachChat">attachChat</a>
 
-</div></body>
+
+
+</div>
+<script>
+var rainbow_hue = 180;
+var dirs = document.getElementsByClassName("dir");
+var title = document.getElementById("titleText");
+
+setInterval(function() {
+  for(i = 0; i<dirs.length; i++) {
+    dirs[i].style.background = "hsl(" + rainbow_hue + ", 70%, 50%)";
+    dirs[i].style.borderColor = "hsl(" + rainbow_hue + ", 70%, 50%)";
+    title.style.background = "hsl(" + (rainbow_hue - 100)%360 + ", 70%, 50%)";
+    title.style.borderColor = "hsl(" + (rainbow_hue - 100)%360 + ", 70%, 50%)";
+  }
+  if (rainbow_hue > 0) {
+    rainbow_hue--;
+  } else {
+    rainbow_hue = 360;
+  }
+}, 100);
+</script>
+</body>
+
 </html>

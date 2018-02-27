@@ -1,23 +1,4 @@
-/* Aesthetic linker js utility which creates cool folder structure index */
-/* generates html using nodejs */
-
-const fs = require('fs');
-const path = require('path');
-
-const folders = [
-  '../..',
-  '../../CodingTrain',
-  '../../css',
-  '../../js',
-  '../../nodejs',
-  '../../p5',
-  '../../particlesjs',
-  '../../sockets',
-  '../../testing',
-  '../../trackingjs'
-];
-
-const before = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <!-- by Plasmoxy -->
 
@@ -95,9 +76,15 @@ const before = `<!DOCTYPE html>
 </head>
 
 <body>
-`;
+<div class="content">
+  <div style="text-align: center;">
+    <img id="bacc" onclick="window.history.back();" src="/assets/img/bacc.jpg"/>
+  </div>
+  <div id="title"><span id="titleText"> 👏 trackingjs 👌</span>
+  </div><br>
+  <a class="dir" href="camera">camera</a>
 
-const after = `</div>
+</div>
 <script>
 var rainbow_hue = 180;
 var dirs = document.getElementsByClassName("dir");
@@ -119,38 +106,4 @@ setInterval(function() {
 </script>
 </body>
 
-</html>`;
-
-folders.forEach(function(folder, folderIndex) {
-
-  var mid = `<div class="content">
-  <div style="text-align: center;">
-    <img id="bacc" onclick="window.history.back();" src="/assets/img/bacc.jpg"/>
-  </div>
-  <div id="title"><span id="titleText"> 👏 ` + path.resolve(folder).split(path.sep).pop() + ` 👌</span>
-  </div><br>
-  `;
-  var stuff = '';
-
-
-  // first dirs
-  fs.readdirSync(folder).forEach(function(file, i) {
-    var isDir = fs.lstatSync(folder + path.sep + file).isDirectory();
-    if (file != "linker.js" && file != "index.html" && isDir)
-      stuff += '<a class="dir" ' + 'href="' + file + '">' + file + '</a>';
-    if (i!=0 && i%3 == 0) stuff += '<br>';
-    stuff += '\n';
-  });
-
-  // then files
-  fs.readdirSync(folder).forEach(function(file, i) {
-    var isDir = fs.lstatSync(folder + path.sep + file).isDirectory();
-    if (file != "linker.js" && file != "index.html" && !isDir)
-      stuff += '<a class="file" ' + 'href="' + file + '">' + file + '</a>';
-    if (i!=0 && i%3 == 0) stuff += '<br>';
-    stuff += '\n';
-  });
-
-
-  fs.writeFile(path.resolve(folder) + '/index.html', before + mid + stuff + after, undefined);
-});
+</html>
