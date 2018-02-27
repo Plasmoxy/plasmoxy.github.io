@@ -14,6 +14,8 @@ window.addEventListener('resize', function() {
 });
 
 camera.position.z = 3;
+scene.background = new THREE.Color(0x111111);
+
 var geometry = new THREE.BoxGeometry(1, 1, 1);
 var material = new THREE.MeshBasicMaterial({
   color: 0xFFFFFF,
