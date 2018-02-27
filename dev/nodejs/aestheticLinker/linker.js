@@ -20,12 +20,13 @@ const folders = [
 const before = `<!DOCTYPE html>
 <html>
 <!-- by Plasmoxy -->
+<!-- Generated using my aestheticLiner NodeJS script -->
 
 <head>
   <title>STRUCTURE</title>
 
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style>
     body {
       font-family: 'Amatic SC', cursive;
@@ -33,14 +34,23 @@ const before = `<!DOCTYPE html>
       color: white;
     }
 
-    .content {
+    .nodeBreak {
+      display: none;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    #content {
       margin: 1em 0.1em 1em 0.1em;
       padding: 0em 0.1em 0em 0.1em;
       text-align: center;
       white-space: nowrap;
+      display: inline-block;
     }
 
-    .content a{
+    #content a{
       transition: all 0.5s ease;
     }
 
@@ -72,10 +82,10 @@ const before = `<!DOCTYPE html>
       font-size: 8em;
       color: #111;
       background: #111;
-      border: solid #111 10px;
-      border-width: 0px 10px 0px 10px;
+      border: solid #111 10%;
+      border-width: 0px 10% 0px 10%;
       border-radius: 10px;
-      padding: 0 2em 0 2em;
+      padding: 0 10% 0 10%;
     }
 
     .titleEmoji {
@@ -95,15 +105,34 @@ const before = `<!DOCTYPE html>
 </head>
 
 <body>
+<div class="centered">
+<div id="content">
+<div style="text-align: center;">
+  <img id="bacc" onclick="window.history.back();" src="/assets/img/bacc.jpg"/>
+</div>
 `;
 
-const after = `</div>
+// exit centerd and content divs on beginning
+const after = `</div></div>
 <script>
 var rainbow_hue = 180;
 var dirs = document.getElementsByClassName("dir");
 var title = document.getElementById("titleText");
 
-setInterval(function() {
+function oneLineLayout(state) {
+  $('.nodeBreakOrdered').each(function(i, obj) {
+    $(obj).css({'display': (state ? 'none' : 'inline')});
+  });
+  $('.nodeBreak').each(function(i, obj) {
+    $(obj).css({'display': (state ? 'inline' : 'none')});
+  });
+}
+
+
+
+setInterval(function() { // render thread
+
+  //rainbow
   for(i = 0; i<dirs.length; i++) {
     dirs[i].style.background = "hsl(" + rainbow_hue + ", 70%, 50%)";
     dirs[i].style.borderColor = "hsl(" + rainbow_hue + ", 70%, 50%)";
@@ -115,6 +144,13 @@ setInterval(function() {
   } else {
     rainbow_hue = 360;
   }
+
+  if (  $('#content').width() >= $(window).width()  ) {
+    oneLineLayout(true);
+  } else {
+    oneLineLayout(false);
+  }
+
 }, 100);
 </script>
 </body>
@@ -123,10 +159,9 @@ setInterval(function() {
 
 folders.forEach(function(folder, folderIndex) {
 
-  var mid = `<div class="content">
-  <div style="text-align: center;">
-    <img id="bacc" onclick="window.history.back();" src="/assets/img/bacc.jpg"/>
-  </div>
+  console.log('PROCESSING: ' + folder);
+
+  var mid = `
   <div id="title"><span id="titleText"> 👏 ` + path.resolve(folder).split(path.sep).pop() + ` 👌</span>
   </div><br>
   `;
@@ -138,7 +173,8 @@ folders.forEach(function(folder, folderIndex) {
     var isDir = fs.lstatSync(folder + path.sep + file).isDirectory();
     if (file != "linker.js" && file != "index.html" && isDir)
       stuff += '<a class="dir" ' + 'href="' + file + '">' + file + '</a>';
-    if (i!=0 && i%3 == 0) stuff += '<br>';
+    stuff += '<br class="nodeBreak">';
+    if (i!=0 && i%3 == 0) stuff += '<br class="nodeBreakOrdered">';
     stuff += '\n';
   });
 
@@ -147,10 +183,11 @@ folders.forEach(function(folder, folderIndex) {
     var isDir = fs.lstatSync(folder + path.sep + file).isDirectory();
     if (file != "linker.js" && file != "index.html" && !isDir)
       stuff += '<a class="file" ' + 'href="' + file + '">' + file + '</a>';
-    if (i!=0 && i%3 == 0) stuff += '<br>';
+    stuff += '<br class="nodeBreak">';
+    if (i!=0 && i%3 == 0) stuff += '<br class="nodeBreakOrdered">';
     stuff += '\n';
   });
 
 
-  fs.writeFile(path.resolve(folder) + '/index.html', before + mid + stuff + after, undefined);
+  fs.writeFileSync(path.resolve(folder) + '/index.html', before + mid + stuff + after);
 });

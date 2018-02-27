@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <!-- by Plasmoxy -->
+<!-- Generated using my aestheticLiner NodeJS script -->
 
 <head>
   <title>STRUCTURE</title>
 
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style>
     body {
       font-family: 'Amatic SC', cursive;
@@ -14,14 +15,23 @@
       color: white;
     }
 
-    .content {
+    .nodeBreak {
+      display: none;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    #content {
       margin: 1em 0.1em 1em 0.1em;
       padding: 0em 0.1em 0em 0.1em;
       text-align: center;
       white-space: nowrap;
+      display: inline-block;
     }
 
-    .content a{
+    #content a{
       transition: all 0.5s ease;
     }
 
@@ -53,10 +63,10 @@
       font-size: 8em;
       color: #111;
       background: #111;
-      border: solid #111 10px;
-      border-width: 0px 10px 0px 10px;
+      border: solid #111 10%;
+      border-width: 0px 10% 0px 10%;
       border-radius: 10px;
-      padding: 0 2em 0 2em;
+      padding: 0 10% 0 10%;
     }
 
     .titleEmoji {
@@ -76,29 +86,44 @@
 </head>
 
 <body>
-<div class="content">
-  <div style="text-align: center;">
-    <img id="bacc" onclick="window.history.back();" src="/assets/img/bacc.jpg"/>
-  </div>
+<div class="centered">
+<div id="content">
+<div style="text-align: center;">
+  <img id="bacc" onclick="window.history.back();" src="/assets/img/bacc.jpg"/>
+</div>
+
   <div id="title"><span id="titleText"> 👏 testing 👌</span>
   </div><br>
-  
-
-
-<a class="dir" href="landed">landed</a><br>
-<a class="dir" href="massively">massively</a>
-<a class="file" href="boot.html">boot.html</a>
-<a class="file" href="bstest.html">bstest.html</a>
-
-<br>
-
-</div>
+  <br class="nodeBreak">
+<br class="nodeBreak">
+<br class="nodeBreak">
+<a class="dir" href="landed">landed</a><br class="nodeBreak"><br class="nodeBreakOrdered">
+<a class="dir" href="massively">massively</a><br class="nodeBreak">
+<a class="file" href="boot.html">boot.html</a><br class="nodeBreak">
+<a class="file" href="bstest.html">bstest.html</a><br class="nodeBreak">
+<br class="nodeBreak">
+<br class="nodeBreak"><br class="nodeBreakOrdered">
+<br class="nodeBreak">
+</div></div>
 <script>
 var rainbow_hue = 180;
 var dirs = document.getElementsByClassName("dir");
 var title = document.getElementById("titleText");
 
-setInterval(function() {
+function oneLineLayout(state) {
+  $('.nodeBreakOrdered').each(function(i, obj) {
+    $(obj).css({'display': (state ? 'none' : 'inline')});
+  });
+  $('.nodeBreak').each(function(i, obj) {
+    $(obj).css({'display': (state ? 'inline' : 'none')});
+  });
+}
+
+
+
+setInterval(function() { // render thread
+
+  //rainbow
   for(i = 0; i<dirs.length; i++) {
     dirs[i].style.background = "hsl(" + rainbow_hue + ", 70%, 50%)";
     dirs[i].style.borderColor = "hsl(" + rainbow_hue + ", 70%, 50%)";
@@ -110,6 +135,13 @@ setInterval(function() {
   } else {
     rainbow_hue = 360;
   }
+
+  if (  $('#content').width() >= $(window).width()  ) {
+    oneLineLayout(true);
+  } else {
+    oneLineLayout(false);
+  }
+
 }, 100);
 </script>
 </body>
