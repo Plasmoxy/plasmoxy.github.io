@@ -5,16 +5,16 @@ const fs = require('fs');
 const path = require('path');
 
 const folders = [
-  '../..',
-  '../../CodingTrain',
-  '../../css',
-  '../../js',
-  '../../nodejs',
-  '../../p5',
-  '../../particlesjs',
-  '../../sockets',
-  '../../testing',
-  '../../trackingjs'
+  '.',
+  'CodingTrain',
+  'css',
+  'js',
+  'nodejs',
+  'p5',
+  'particlesjs',
+  'sockets',
+  'testing',
+  'trackingjs'
 ];
 
 const before = `<!DOCTYPE html>
