@@ -7,8 +7,8 @@ const path = require('path');
 const folders = [
   '.',
   'CodingTrain',
-  'CSS',
-  'CSS/sololearn',
+  'css',
+  'css/sololearn',
   'Javascript',
   'Javascript/gudobjects',
   'Javascript/sololearn',
