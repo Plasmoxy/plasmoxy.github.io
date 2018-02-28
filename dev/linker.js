@@ -90,7 +90,7 @@ const before = `<!DOCTYPE html>
     }
 
     #titleText {
-      font-size: 200px;
+      font-size: 150px;
       color: #111;
       background: #111;
       border: solid #111 10px;
@@ -107,10 +107,10 @@ const before = `<!DOCTYPE html>
     #bacc {
       transition: all 0.5s ease;
       cursor: pointer;
-      width: 5em;
+      width: 20em;
     }
     #bacc:hover {
-      width: 20em;
+      width: 50em;
     }
   </style>
 </head>
