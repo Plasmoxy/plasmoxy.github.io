@@ -6,13 +6,8 @@
 <head>
   <title>STRUCTURE</title>
 
-  <!-- mobile chrome stuff-->
-  <meta name="theme-color" content="#00ffe0">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://plasmoxy.github.io/assets/js/pmxy.js">/script>
   <style>
     body {
       font-family: 'Amatic SC', cursive;
@@ -143,9 +138,6 @@ setInterval(function() { // render thread
     title.style.background = "hsl(" + (rainbow_hue - 100)%360 + ", 70%, 50%)";
     title.style.borderColor = "hsl(" + (rainbow_hue - 100)%360 + ", 70%, 50%)";
   }
-
-  $('meta[name=theme-color]').attr('content', pmxyjs.hslToHex(newHue, 70, 50));
-
   if (rainbow_hue > 0) {
     rainbow_hue--;
   } else {
