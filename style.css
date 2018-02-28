@@ -3,6 +3,11 @@ body {
   color: white;
 }
 
+.container .jumbotron {
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
 #roundcorners {
     border-radius: 10px;
     background: #0f0f0f;
@@ -15,4 +20,8 @@ body {
 
 .cyanhighlight {
   color:#00ffe0;
+}
+
+.blacc {
+  color: #0f0f0f;
 }
