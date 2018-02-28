@@ -1,3 +1,4 @@
+console.log('starting rainbow.js')
 var rainbow_hue = 0;
 var titleContainer = document.getElementById("titleContainer");
 
