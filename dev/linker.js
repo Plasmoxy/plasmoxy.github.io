@@ -7,8 +7,8 @@ const path = require('path');
 const folders = [
   '.',
   'CodingTrain',
-  'CSS',
-  'CSS/sololearn',
+  'css',
+  'css/sololearn',
   'Javascript',
   'Javascript/gudobjects',
   'Javascript/sololearn',
@@ -31,8 +31,13 @@ const before = `<!DOCTYPE html>
 <head>
   <title>STRUCTURE</title>
 
+  <!-- mobile chrome stuff-->
+  <meta name="theme-color" content="#00ffe0">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://plasmoxy.github.io/assets/js/pmxy.js"></script>
   <style>
     body {
       font-family: 'Amatic SC', cursive;
@@ -85,7 +90,7 @@ const before = `<!DOCTYPE html>
     }
 
     #titleText {
-      font-size: 200px;
+      font-size: 150px;
       color: #111;
       background: #111;
       border: solid #111 10px;
@@ -102,10 +107,10 @@ const before = `<!DOCTYPE html>
     #bacc {
       transition: all 0.5s ease;
       cursor: pointer;
-      width: 5em;
+      width: 20em;
     }
     #bacc:hover {
-      width: 20em;
+      width: 50em;
     }
   </style>
 </head>
@@ -158,6 +163,8 @@ setInterval(function() { // render thread
   } else {
     rainbow_hue = 360;
   }
+
+  $('meta[name=theme-color]').attr('content', pmxyjs.hslToHex(rainbow_hue, 70, 50));
 
   // responsivity
   if (  initContentWidth >= $(window).width()  ) {

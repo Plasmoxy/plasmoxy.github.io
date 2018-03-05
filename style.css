@@ -1,6 +1,23 @@
+
 body {
   background-color: #0f0f0f;
   color: white;
+}
+
+#titleContainer {
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+#title {
+  font-family: 'Ostrich Sans', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#subtitle {
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 2em;
 }
 
 #roundcorners {
@@ -15,4 +32,8 @@ body {
 
 .cyanhighlight {
   color:#00ffe0;
+}
+
+.blacc {
+  color: #0f0f0f;
 }
