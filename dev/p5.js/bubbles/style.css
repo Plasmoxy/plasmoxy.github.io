@@ -9,4 +9,5 @@ body {
   color: rgb(255, 0, 168);
   font-family: sans-serif;
   font-size: 5em;
+  display: block;
 }
