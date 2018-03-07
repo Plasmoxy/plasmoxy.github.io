@@ -11,3 +11,9 @@ body {
   font-size: 5em;
   display: block;
 }
+
+#p5_loading {
+  font-size: 3em;
+  display: block;
+  color: rgb(236, 254, 30);
+}

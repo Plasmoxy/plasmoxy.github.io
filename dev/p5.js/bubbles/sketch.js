@@ -60,8 +60,8 @@ function preload() {
 function setup() {
   if (wentFullScreen) createCanvas(windowWidth, windowHeight);
   else return;
-  
-  song.loop();
+
+  if (!song.isPlaying()) song.loop();
 
   tscale = windowWidth/64;
 
