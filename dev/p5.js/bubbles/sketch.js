@@ -1,6 +1,6 @@
 /* p5.js Bubbles by Plasmoxy */
 
-var wentFullScreen = false;
+var wentFullScreen = false, exitDetectionActive = false;
 var infoDiv = document.getElementById("info");
 
 var renderActive = true;
@@ -107,8 +107,14 @@ function mouseReleased(){
 
 /* HTML LISTENERS */
 
-function onFullScreenExit() {
-  createCanvas(0,0);
+function onFullScreenChange() {
+  if (!window.fullScreen && exitDetectionActive) {
+    exitDetectionActive = false;
+    renderActive = false;
+    createCanvas(0,0);
+    wentFullScreen = false;
+    infoDiv.style.display = "block";
+  }
 }
 
 window.addEventListener('load', function(){
@@ -127,13 +133,17 @@ window.addEventListener('load', function(){
         bubbles = []; // reset bubbles so there isnt an NaN object in there
 
         setFullScreen(true);
-
         renderActive = true;
+
+        // this is ultra important as the fullscreenchange event is fired and window may not be fullscreen yet when onFullScreenChange is executed
+        setTimeout(() => exitDetectionActive = true, 100);
 
         setTimeout(setup, 1000);
       }
     });
 
-    addEventListener('fullscreenchange', onFullScreenExit, false);
+    addEventListener('webkitfullscreenchange', onFullScreenChange, false);
+    addEventListener('mozfullscreenchange', onFullScreenChange, false);
+    addEventListener('fullscreenchange', onFullScreenChange, false);
 
 }, false);
