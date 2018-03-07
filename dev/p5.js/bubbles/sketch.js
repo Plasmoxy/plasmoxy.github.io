@@ -32,6 +32,7 @@ function setFullScreen(on) {
 }
 
 function Bubble(_x,_y,_radius,_speed) {
+   this.layer = 0; // default layer
    this.x = _x;
    this.y = _y;
    this.r = _radius;
@@ -44,18 +45,19 @@ function Bubble(_x,_y,_radius,_speed) {
    }
 }
 
-function addBubble(x, y) { // random size and speed
+function addBubble(x, y, _layer) { // random size and speed
   var a = new Bubble(x,
     y,
     Math.floor(Math.random()*(5*tscale-2*tscale))+2*tscale,
     -(Math.random()*(100-20)+20) * pxPerSec // minus cus le bubble may go up
   );
+  a.layer = _layer;
   a.color = [Math.random()*255,  Math.random()*255, Math.random()*255];
   bubbles.push(a);
 }
 
 function randomSpawner() {
-  addBubble(Math.random()*windowWidth, windowHeight);
+  addBubble(Math.random()*windowWidth, windowHeight+5*tscale, 0);
 }
 
 function move() {
@@ -87,12 +89,26 @@ function setup() {
 function draw() {
 
    if(!renderActive) return;
+   clear();
+
+   // filter out bubbles that are out of screen
+   bubbles.forEach(function(a,i) {
+     if (a.y < 0|| isNaN(a.y)) {
+       bubbles.splice(bubbles.indexOf(a), 1);
+     }
+   });
+
+   // draw layer 0
+   bubbles.forEach(function(a,i) {
+     if(a.layer==0) a.draw();
+   });
 
 
+
+   /* ============ TEXT ============ */
    let textpos = 50;
    let textPadding = 30;
    const textdiff = 10;
-   clear();
 
    fill("#E91E63");
    textpos += 3*tscale + textdiff;
@@ -108,23 +124,18 @@ function draw() {
    textSize(3*tscale);
    fill("white");
    if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", textPadding, textpos);
+   /* ============ TEXT ============ */
 
-   // filter out bubbles that are out of screen
+   // draw layer 1
    bubbles.forEach(function(a,i) {
-     if (a.y < 0|| isNaN(a.y)) {
-       bubbles.splice(bubbles.indexOf(a), 1);
-     }
+     if(a.layer==1) a.draw();
    });
 
-   // draw 'em
-   bubbles.forEach(function(a,i) {
-     a.draw();
-   });
 
 }
 
 function mousePressed(){
-  if (!MOBILE) addBubble(mouseX, mouseY); // ignore mouse on mobile
+  if (!MOBILE) addBubble(mouseX, mouseY, 1); // ignore mouse on mobile
 }
 
 function mouseReleased(){
@@ -151,7 +162,7 @@ window.addEventListener('load', function(){
     if(MOBILE) document.body.addEventListener('touchstart', function(e){ // only on mobile
         var t = e.changedTouches;
         for(i=0; i<t.length; i++) {
-          addBubble(t[i].pageX, t[i].pageY);
+          addBubble(t[i].pageX, t[i].pageY, 1);
         }
     }, false)
 
