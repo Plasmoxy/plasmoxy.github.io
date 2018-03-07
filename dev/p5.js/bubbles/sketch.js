@@ -12,6 +12,8 @@ var tscale;
 
 var MOBILE = window.mobileCheck();
 
+var blueheron;
+
 function setFullScreen(on) {
   var el = document.documentElement;
   var rfs =
@@ -51,9 +53,15 @@ function move() {
   });
 }
 
+function preload() {
+  song = loadSound('/assets/sound/blueheron.mp3');
+}
+
 function setup() {
   if (wentFullScreen) createCanvas(windowWidth, windowHeight);
-  else createCanvas(0,0);
+  else return;
+  
+  song.loop();
 
   tscale = windowWidth/64;
 
