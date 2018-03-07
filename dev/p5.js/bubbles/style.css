@@ -1,6 +1,8 @@
 body {
   background-color: #111;
   color: white;
+  margin: 0px 0px 0px 0px; /* DISABLE THOS BAD BORDERS */
+  overflow: hidden; /* DISABLE SCROLLING */
 }
 
 #info {

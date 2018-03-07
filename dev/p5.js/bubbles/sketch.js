@@ -4,12 +4,30 @@ var wentFullScreen = false;
 var infoDiv = document.getElementById("info");
 
 var bubbles = [];
+var bubles_sub = [];
+var bubbles_lock = false;
 var pxPerSec = 1/60;
 var speed = 200 * pxPerSec;
 
 var tscale;
 
 var MOBILE = window.mobileCheck();
+
+function setFullScreen(on) {
+  var el = document.documentElement;
+  var rfs =
+     el.requestFullScreen
+  || el.webkitRequestFullScreen
+  || el.mozRequestFullScreen
+  ;
+
+  var efs =
+    document.webkitExitFullscreen
+  || document.mozCancelFullScreen
+  || document.msExitFullscreen
+
+  on ? rfs.call(el) : efs.call(document);
+}
 
 function bubble(stx,sty) {
    this.x = stx;
@@ -35,7 +53,7 @@ function move() {
 }
 
 function setup() {
-  if (wentFullScreen) createCanvas(windowWidth-15, windowHeight-20);
+  if (wentFullScreen) createCanvas(windowWidth, windowHeight);
   else createCanvas(0,0);
 
   tscale = windowWidth/64;
@@ -74,9 +92,11 @@ function draw() {
 
 function mousePressed(){
   if (!MOBILE) addBubble(mouseX, mouseY); // ignore mouse on mobile
+  setFullScreen(false);
 }
 
-function mouseReleased(){}
+function mouseReleased(){
+}
 
 window.addEventListener('load', function(){
 
@@ -95,12 +115,7 @@ addEventListener("click", function() {
     infoDiv.style.display = "none";
     bubbles = []; // reset bubbles so there isnt an NaN object in there
 
-    var el = document.documentElement, rfs =
-      el.requestFullScreen
-      || el.webkitRequestFullScreen
-      || el.mozRequestFullScreen
-    ;
-    rfs.call(el);
+    setFullScreen(true);
 
     setTimeout(setup, 1000);
   }
