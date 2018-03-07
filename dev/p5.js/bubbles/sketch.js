@@ -13,6 +13,8 @@ var MOBILE = window.mobileCheck();
 
 var song;
 
+var moveTimer, spawnTimer;
+
 function setFullScreen(on) {
   var el = document.documentElement;
   var rfs =
@@ -75,8 +77,11 @@ function setup() {
 
   tscale = windowWidth/64;
 
-  setInterval(move, 1000/60); // 60hz move
-  setInterval(randomSpawner, 1000);
+  clearInterval(moveTimer); // ultra wtf, remove this and bugfix Seb
+  clearInterval(spawnTimer);
+
+  moveTimer = setInterval(move, 1000/60); // 60hz move
+  spawnTimer = setInterval(randomSpawner, 1000);
 }
 
 function draw() {
@@ -136,6 +141,8 @@ function onFullScreenChange() {
     wentFullScreen = false;
     infoDiv.style.display = "block";
     if (song.isPlaying()) song.stop();
+    clearInterval(moveTimer);
+    clearInterval(spawnTimer);
   }
 }
 
