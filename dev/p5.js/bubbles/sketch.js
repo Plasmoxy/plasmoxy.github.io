@@ -72,24 +72,26 @@ function draw() {
 
    if(!renderActive) return;
 
-   var textpos = 50;
-   let textdiff = 10;
+
+   let textpos = 50;
+   let textPadding = 30;
+   const textdiff = 10;
    clear();
 
    fill("#E91E63");
    textpos += 3*tscale + textdiff;
    textSize(3*tscale);
-   text("Bubbles by Plasmoxy <p5.js> " + (MOBILE ? "[MOBILE]" : "[PC]" ), 50, textpos);
+   text("Bubbles by Plasmoxy <p5.js> " + (MOBILE ? "[MOBILE]" : "[PC]" ), textPadding, textpos);
 
    textpos += 3*tscale + textdiff;
    textSize(3*tscale);
    fill("#FFEB3B");
-   text("Bubbles: "+ (bubbles.length), 50, textpos);
+   text("Bubbles: "+ (bubbles.length), textPadding, textpos);
 
    textpos += 3*tscale + textdiff;
    textSize(3*tscale);
    fill("white");
-   if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", 50, textpos);
+   if (bubbles[0]) text("Last bubble : ["+parseInt(bubbles[bubbles.length-1].x)+",  "+parseInt(bubbles[bubbles.length-1].y) + "]", textPadding, textpos);
 
    // filter out bubbles that are out of screen
    bubbles.forEach(function(a,i) {
@@ -122,6 +124,7 @@ function onFullScreenChange() {
     createCanvas(0,0);
     wentFullScreen = false;
     infoDiv.style.display = "block";
+    if (song.isPlaying()) song.stop();
   }
 }
 
