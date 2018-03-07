@@ -6,13 +6,12 @@ var infoDiv = document.getElementById("info");
 var renderActive = true;
 var bubbles = [];
 var pxPerSec = 1/60;
-var speed = 200 * pxPerSec;
 
 var tscale;
 
 var MOBILE = window.mobileCheck();
 
-var blueheron;
+var song;
 
 function setFullScreen(on) {
   var el = document.documentElement;
@@ -30,26 +29,37 @@ function setFullScreen(on) {
   on ? rfs.call(el) : efs.call(document);
 }
 
-function bubble(stx,sty) {
-   this.x = stx;
-   this.y = sty;
-   this.r = 100;
+function Bubble(_x,_y,_radius,_speed) {
+   this.x = _x;
+   this.y = _y;
+   this.r = _radius;
+   this.speed = _speed;
    this.color = [0, 0, 255];
    this.draw = function() {
+      noStroke()
       fill(this.color[0], this.color[1], this.color[2]);
-      ellipse(this.x, this.y, this.r, this.r);
+      ellipse(this.x, this.y, this.r*2, this.r*2); // we need diameter
    }
 }
 
-function addBubble(x, y) {
-   var a = new bubble(x, y);
-   a.color = [Math.random()*255,  Math.random()*255, Math.random()*255];
-   bubbles.push(a);
+function addBubble(x, y) { // random size and speed
+  var a = new Bubble(x,
+    y,
+    Math.floor(Math.random()*(5*tscale-2*tscale))+2*tscale,
+    -(Math.random()*(100-20)+20) * pxPerSec // minus cus le bubble may go up
+  );
+  a.color = [Math.random()*255,  Math.random()*255, Math.random()*255];
+  bubbles.push(a);
+}
+
+function randomSpawner() {
+  addBubble(Math.random()*windowWidth, windowHeight);
 }
 
 function move() {
   bubbles.forEach(function(a,i) {
-    a.y += speed;
+    a.y += a.speed;
+    a.speed += a.speed/200;
   });
 }
 
@@ -65,7 +75,8 @@ function setup() {
 
   tscale = windowWidth/64;
 
-  setInterval(move, 1000/60);
+  setInterval(move, 1000/60); // 60hz move
+  setInterval(randomSpawner, 1000);
 }
 
 function draw() {
@@ -95,7 +106,7 @@ function draw() {
 
    // filter out bubbles that are out of screen
    bubbles.forEach(function(a,i) {
-     if (a.y > windowHeight || isNaN(a.y)) {
+     if (a.y < 0|| isNaN(a.y)) {
        bubbles.splice(bubbles.indexOf(a), 1);
      }
    });
