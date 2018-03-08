@@ -1,11 +1,13 @@
 PIXI.utils.sayHello();
 
-var renderer = PIXI.autoDetectRenderer(1000, 800, {
+/* setup renderer */
+var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
   transparent: false,
   resolution: 1
 });
 renderer.backgroundColor = 0x111111;
-document.getElementById('display').appendChild(renderer.view);
+document.getElementById('display').appendChild(renderer.view); // append renderer to display div
+
 
 var stage = new PIXI.Container();
 
@@ -17,25 +19,36 @@ PIXI.loader
 var fak;
 
 function setup() {
-  fak = new PIXI.Sprite(
-    PIXI.loader.resources['fak'].texture
-  );
-
-  fak.scale.set(0.5, 0.5);
-  fak.anchor.set(0.5, 0.5);
-  fak.x = renderer.width / 2;
-  fak.y = renderer.height / 2;
+  fak = new Fak();
+  fak.center();
 
   stage.addChild(fak);
   renderer.render(stage);
 
   update(); // start render chain
+
+  setInterval(function() {
+    console.log('pos = '+fak.position.x+' '+fak.position.y+', v = '+fak.velocity+', tar = '+fak.target)
+  }, 1000);
+
+  /* add responsivity to renderer */
+  window.addEventListener("resize", function() {
+    renderer.resize(window.innerWidth, window.innerHeight);
+  });
+
+  window.addEventListener('mousemove', function(e) {
+    fak.target.x = e.pageX;
+    fak.target.y = e.pageY;
+  });
 }
 
 function update() {
   requestAnimationFrame(update);
 
-  fak.rotation += 0.01;
+  fak.headToTarget();
+  fak.rotateToVelocity();
+  fak.move();
+  //console.log(fak.velocity.toString());
 
   renderer.render(stage);
 }
