@@ -20,7 +20,8 @@ const folders = [
   'particlesjs',
   'sockets',
   'testing',
-  'trackingjs'
+  'trackingjs',
+  'PixiJS'
 ];
 
 const before = `<!DOCTYPE html>
