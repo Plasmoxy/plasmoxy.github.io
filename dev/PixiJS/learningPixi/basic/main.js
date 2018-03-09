@@ -22,13 +22,10 @@ loader
 
 /* logic */
 
-let player, walls;
+let player, walls, camera;
 
-let uparrow = new KeyboardKey(38);
+let keys;
 
-uparrow.pressed = () => {
-
-};
 
 function setup() {
 
@@ -49,6 +46,18 @@ function setup() {
   /* setup ticker */
   app.ticker.add(tick);
 
+  /* define control */
+  keys = {
+    up: new KeyboardKey(38),
+    down: new KeyboardKey(40),
+    left: new KeyboardKey(37),
+    right: new KeyboardKey(39)
+  };
+
+  /* create camera */
+  camera = new Camera(app.stage);
+  camera.linkControlHandlers(keys);
+
   /* start rendering */
   update();
 }
@@ -59,4 +68,5 @@ function update() {
 
 function tick(dt) {
   player.rotation += (2*pi/60)*dt; // 2pi per second
+  camera.move(dt);
 }

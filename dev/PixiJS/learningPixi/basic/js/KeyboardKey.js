@@ -16,16 +16,16 @@ class KeyboardKey {
 
   downHandler(event) {
     if (event.keyCode === this.code) {
-      if (!state && this.pressed) this.pressed();
-      state = true;
+      if (!this.state && this.pressed) this.pressed();
+      this.state = true;
     }
     event.preventDefault();
   }
 
   upHandler(event) {
     if (event.keyCode === this.code) {
-      if (state && key.released) key.released();
-      state = false;
+      if (this.state && this.released) this.released();
+      this.state = false;
     }
   }
 }
