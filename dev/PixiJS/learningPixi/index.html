@@ -1,31 +1,4 @@
-/* Aesthetic linker js utility which creates cool folder structure index */
-/* generates html using nodejs */
-
-const fs = require('fs');
-const path = require('path');
-
-const folders = [
-  '.',
-  'CodingTrain',
-  'css',
-  'css/sololearn',
-  'Javascript',
-  'Javascript/gudobjects',
-  'Javascript/sololearn',
-  'Javascript/testing',
-  'nodejs',
-  'p5.js',
-  'three.js',
-  'three.js/learning',
-  'particlesjs',
-  'sockets',
-  'testing',
-  'trackingjs',
-  'PixiJS',
-  'PixiJS/learningPixi'
-];
-
-const before = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <!-- by Plasmoxy -->
 <!-- Generated using my aestheticLiner NodeJS script -->
@@ -123,10 +96,14 @@ const before = `<!DOCTYPE html>
 <div style="text-align: center;">
   <img id="bacc" onclick="window.history.back();" src="/assets/img/bacc.jpg"/>
 </div>
-`;
 
-// exit centerd and content divs on beginning
-const after = `</div></div>
+  <div id="title"><span id="titleText"> 👏 learningPixi 👌</span>
+  </div><br>
+  <a class="dir" href="basic">basic</a><br class="nodeBreak">
+<br class="nodeBreak">
+<br class="nodeBreak">
+<br class="nodeBreak">
+</div></div>
 
 <div style="height: 200px;"></div>
 
@@ -179,39 +156,4 @@ setInterval(function() { // render thread
 </script>
 </body>
 
-</html>`;
-
-folders.forEach(function(folder, folderIndex) {
-
-  console.log('PROCESSING: ' + folder);
-
-  var mid = `
-  <div id="title"><span id="titleText"> 👏 ` + path.resolve(folder).split(path.sep).pop() + ` 👌</span>
-  </div><br>
-  `;
-  var stuff = '';
-
-
-  // first dirs
-  fs.readdirSync(folder).forEach(function(file, i) {
-    var isDir = fs.lstatSync(folder + path.sep + file).isDirectory();
-    if (file != "linker.js" && file != "index.html" && isDir)
-      stuff += '<a class="dir" ' + 'href="' + file + '">' + file + '</a>';
-    stuff += '<br class="nodeBreak">';
-    if (i!=0 && i%3 == 0) stuff += '<br class="nodeBreakOrdered">';
-    stuff += '\n';
-  });
-
-  // then files
-  fs.readdirSync(folder).forEach(function(file, i) {
-    var isDir = fs.lstatSync(folder + path.sep + file).isDirectory();
-    if (file != "linker.js" && file != "index.html" && !isDir)
-      stuff += '<a class="file" ' + 'href="' + file + '">' + file + '</a>';
-    stuff += '<br class="nodeBreak">';
-    if (i!=0 && i%3 == 0) stuff += '<br class="nodeBreakOrdered">';
-    stuff += '\n';
-  });
-
-
-  fs.writeFileSync(path.resolve(folder) + '/index.html', before + mid + stuff + after);
-});
+</html>
