@@ -67,6 +67,7 @@ function update() {
 }
 
 function tick(dt) {
-  player.rotation += (2*pi/60)*dt; // 2pi per second
+  player.position.x = app.renderer.width/2 - app.stage.position.x;
+  player.position.y = app.renderer.height/2 - app.stage.position.y;
   camera.move(dt);
 }
