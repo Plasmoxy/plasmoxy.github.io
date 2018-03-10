@@ -8,30 +8,42 @@ class Player extends Sprite {
     /* set anchor to center */
     this.anchor.set(0.5, 0.5);
 
-    /* velocity vector*/
-    this.v = new Victor();
-    this.dir = 0; // direction
-    this.speed = 300; // px per sec
+    this.direction = -Math.PI/2; // global player direction, -Math.PI/2 means up, uses y-inverted unit circle angle logic
+    this.v = new Victor(); // velocity vector
+    this.av = 0; // angular velocity, radians per sec
+    this.speed = 0; // px per sec
+
+    this.targetSpeed = 100;
+    this.targetav = Math.PI;
   }
 
   setKeys(keys) {
 
-    // btw I'm substracting y on up because of the weird coordinate system
-    keys.up.pressed = () => { this.v.y -= this.speed; };
-    keys.up.released = () => { this.v.y += this.speed; };
+    // btw remember the coordinate system is different than normal my dude
+    keys.up.pressed = () => { this.speed += this.targetSpeed};
+    keys.up.released = () => { this.speed -= this.targetSpeed};
 
-    keys.down.pressed = () => {this.v.y += this.speed; };
-    keys.down.released = () => {this.v.y -= this.speed; };
+    keys.down.pressed = () => { this.speed -= this.targetSpeed};
+    keys.down.released = () => { this.speed += this.targetSpeed };
 
-    keys.left.pressed = () => {this.v.x -= this.speed; };
-    keys.left.released = () => {this.v.x += this.speed; };
+    keys.left.pressed = () => { this.av -= this.targetav };
+    keys.left.released = () => { this.av += this.targetav};
 
-    keys.right.pressed = () => {this.v.x += this.speed; };
-    keys.right.released = () => {this.v.x -= this.speed; };
+    keys.right.pressed = () => { this.av += this.targetav };
+    keys.right.released = () => { this.av -= this.targetav };
   }
 
   move(dt) {
-    this.position.x += (this.v.x/60)*dt;
-    this.position.y += (this.v.y/60)*dt;
+    this.v.x = Math.cos(this.direction)*this.speed;
+    this.v.y = Math.sin(this.direction)*this.speed;
+
+    this.position.x += this.v.x * (dt/60);
+    this.position.y += this.v.y * (dt/60);
+
+    this.direction += this.av * (dt/60);
+    console.log(this.rotation);
+
+    // rotate sprite to the right way
+    this.rotation = this.direction + Math.PI/2;
   }
 }
