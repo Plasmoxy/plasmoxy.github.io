@@ -8,6 +8,8 @@ class Player extends Sprite {
     /* set anchor to center */
     this.anchor.set(0.5, 0.5);
 
+    this.scale.set(0.5, 0.5);
+
     this.direction = -Math.PI/2; // global player direction, -PI/2 means up, uses y-inverted unit circle angle logic
     this.v = new Victor(); // velocity vector
 
