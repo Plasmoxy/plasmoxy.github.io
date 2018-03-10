@@ -27,12 +27,16 @@ let world, player, walls;
 let keys;
 
 function setup() {
+
+  /* create world */
   world = new World();
   app.stage.addChild(world);
 
-  player = new Player(100, 100, resources.roket.texture);
+  /* create player */
+  player = new Player(0,0, resources.roket.texture);
   world.addChild(player);
 
+  /* add some debug walls */
   walls = new Container();
   walls.sprites = Array.from(new Array(5), (x,i) => new Wall((64 + 6)*i,0));
   walls.sprites.forEach((w,i) => {
@@ -51,6 +55,7 @@ function setup() {
     left: new KeyboardKey(37),
     right: new KeyboardKey(39)
   };
+  player.setKeys(keys);
 
   /* start rendering */
   update();
@@ -61,10 +66,7 @@ function update() {
 }
 
 function tick(dt) {
-  /* center world to player */
-  world.pivot.x = player.position.x;
-  world.pivot.y = player.position.y;
-  world.position.x = app.renderer.width/2;
-  world.position.y = app.renderer.height/2;
+  player.move(dt);
+  world.centerTo(player);
 
 }
