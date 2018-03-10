@@ -18,6 +18,7 @@ app.renderer.backgroundColor = 0;
 loader
   .add('roket', '/assets/sprites/aquaroket.png')
   .add('tileset', 'tileset.png')
+  .add('safarik', '/assets/sprites/safarik.png')
   .load(setup)
 ;
 
@@ -33,10 +34,8 @@ window.addEventListener('resize', function() {
 /* logic */
 
 let world, gui;
-let player, walls;
+let player;
 let keys;
-
-let temp;
 
 function setup() {
 
@@ -47,7 +46,7 @@ function setup() {
   /* create gui */
   gui = new Gui();
   app.stage.addChild(gui);
-  temp = new CoolText("Hello fag this is Sample Textzt");
+  let temp = new CoolText("Hello fag this is Sample Textzt");
     temp.x = 50;
     temp.y = 50;
     gui.addChild(temp);
@@ -58,13 +57,18 @@ function setup() {
   world.addChild(player);
 
   /* add some debug walls */
-  walls = new Container();
+  let walls = new Container();
   walls.sprites = Array.from(new Array(5), (x,i) => new Wall((64 + 6)*i,0));
   walls.sprites.forEach((w,i) => {
     walls.addChild(w);
   });
   walls.position.set(0,0);
   world.addChild(walls);
+
+  /* add some Safarik xDD */
+  let safarik = new Sprite(resources.safarik.texture);
+  safarik.position.set(-800, -800);
+  world.addChild(safarik);
 
   /* setup ticker */
   app.ticker.add(tick);

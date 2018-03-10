@@ -58,5 +58,7 @@ class Player extends Sprite {
     // floor speed if its too low
     if (this.speed > 0 && this.speed < 1) this.speed = 0;
     else if (this.speed < 0 && this.speed > -1) this.speed = 0;
+
+    
   }
 }
