@@ -22,9 +22,4 @@ class World extends Container {
     this.rotation = - (directionContainer.direction + Math.PI/2);
   }
 
-  scaleTo(player) {
-    let sc = (2 - (player.speed/player.maxSpeed)) - 1;
-    this.scale.set(sc, sc);
-  }
-
 }

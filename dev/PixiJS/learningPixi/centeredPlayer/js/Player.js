@@ -20,14 +20,14 @@ class Player extends Sprite {
 
     this.aspeed = 0; // angular speed, radians per sec
     this.targetASpeed = 0; // target angular speed
-    this.aspeeda = Math.PI; // angular speed acceleration, radians per sec^2
-    this.maxASpeed = Math.PI*2; // maximal angular speed
+    this.aspeeda = Math.PI*2; // angular speed acceleration, radians per sec^2
+    this.maxASpeed = Math.PI*1; // maximal angular speed
   }
 
   setKeys(keys) {
 
     // lambdas were defined here, therefore this always refers to player object ? hmm
-
+    /*
     // btw remember the coordinate system is different than normal my dude
     keys.up.pressed = () => { this.targetSpeed += this.maxSpeed; };
     keys.up.released = () => { this.targetSpeed -= this.maxSpeed; };
@@ -42,16 +42,35 @@ class Player extends Sprite {
     keys.right.pressed = () => { this.targetASpeed += this.maxASpeed; };
     keys.right.released = () => { this.targetASpeed -= this.maxASpeed; };
 
+    */
+
   }
 
   move(dt) {
+
+    /* I decided to go for conditional handling as for various bugs when using math input handling */
+
+    this.targetSpeed = ( () => {
+      let u = keys.up.state, d = keys.down.state;
+           if (u && !d) return this.maxSpeed;
+      else if (!u && d) return -this.maxSpeed;
+      else if ( (u && d) || (!u && !d) ) return 0;
+    })();
+
+    this.targetASpeed = ( () => {
+      let l = keys.left.state, r = keys.right.state;
+           if (l && !r) return -this.maxASpeed;
+      else if (!l && r) return this.maxASpeed;
+      else if ( (l && r) || (!l && !r) ) return 0;
+    })();
+
     this.v.x = Math.cos(this.direction)*this.speed;
     this.v.y = Math.sin(this.direction)*this.speed;
 
     this.position.x += this.v.x * (dt/60);
     this.position.y += this.v.y * (dt/60);
 
-    this.direction += this.aspeed * (dt/60);
+    this.direction += (this.aspeed * (dt/60));
 
     // rotate sprite to the right way
     this.rotation = this.direction + Math.PI/2;
@@ -65,13 +84,18 @@ class Player extends Sprite {
     else if (this.speed > this.targetSpeed) this.speed -= this.speeda * (dt/60);
 
     // floor speed if its too low
-    if (this.speed > 0 && this.speed < 1) this.speed = 0;
-    else if (this.speed < 0 && this.speed > -1) this.speed = 0;
+    if (this.speed > 0 && this.speed < this.speeda * (dt/60)) this.speed = 0;
+    else if (this.speed < 0 && this.speed > this.speeda * (dt/60)) this.speed = 0;
 
     /* angular speed */
 
     if (this.aspeed < this.targetASpeed) this.aspeed += this.aspeeda * (dt/60);
     else if (this.aspeed > this.targetASpeed) this.aspeed -= this.aspeeda * (dt/60);
+
+    if (this.aspeed > 0 && this.aspeed < (dt/60)) this.aspeed = 0;
+    else if (this.aspeed < 0 && this.aspeed > -(dt/60)) this.aspeed = 0;
+
+    console.log('speed = ' + this.speed + ', aspeed = ' + this.aspeed);
 
 
   }
