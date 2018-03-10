@@ -19,7 +19,7 @@ class World extends Container {
   }
 
   rotateTo(directionContainer) {
-    world.rotation = -directionContainer.direction;
+    world.rotation = - (directionContainer.direction + Math.PI/2);
   }
 
 }

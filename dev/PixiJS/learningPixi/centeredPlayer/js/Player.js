@@ -41,7 +41,6 @@ class Player extends Sprite {
     this.position.y += this.v.y * (dt/60);
 
     this.direction += this.av * (dt/60);
-    console.log(this.rotation);
 
     // rotate sprite to the right way
     this.rotation = this.direction + Math.PI/2;
