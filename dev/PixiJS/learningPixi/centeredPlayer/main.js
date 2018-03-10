@@ -21,16 +21,46 @@ loader
   .load(setup)
 ;
 
+/* custom html util */
+window.addEventListener('orientationchange', function ()
+{
+    if (window.innerHeight > window.innerWidth)
+    {
+        document.getElementsByTagName('body')[0].style.transform = "rotate(90deg)";
+    }
+});
+
+window.addEventListener('resize', function() {
+  w = window.innerWidth;
+  h = window.innerHeight;
+
+  app.renderer.view.style.width = w + "px";
+  app.renderer.view.style.height = h + "px";
+  app.renderer.resize(w,h);
+});
+
 /* logic */
 
-let world, player, walls;
+let world, gui;
+let player, walls;
 let keys;
+
+let temp;
 
 function setup() {
 
   /* create world */
   world = new World();
   app.stage.addChild(world);
+
+  /* create gui */
+  gui = new Gui();
+  app.stage.addChild(gui);
+  temp = new CoolText("Hello darkness");
+    temp.x = 50;
+    temp.y = 50;
+    gui.addChild(temp);
+  temp = null;
 
   /* create player */
   player = new Player(0,0, resources.roket.texture);
@@ -68,5 +98,4 @@ function update() {
 function tick(dt) {
   player.move(dt);
   world.centerTo(player);
-
 }
