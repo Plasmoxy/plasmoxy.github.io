@@ -9,6 +9,8 @@ let app = new Application({
   transparent: false,
   resolution: 1
 });
+
+app.view.style.display = "none";
 document.body.appendChild(app.view);
 
 app.renderer.backgroundColor = 0;
@@ -41,6 +43,7 @@ let keys;
 function setup() {
 
   document.getElementById('loading').style.display = 'none';
+  app.view.style.display = "block";
 
   /* create world */
   world = new World();
