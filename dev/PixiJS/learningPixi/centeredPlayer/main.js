@@ -57,10 +57,6 @@ function setup() {
     gui.addChild(temp);
   temp = null;
 
-  /* create player */
-  player = new Player(100,100, resources.roket.texture);
-  world.addChild(player);
-
   /* add some debug walls */
   let walls = new Container();
   walls.sprites = Array.from(new Array(5), (x,i) => new Wall((64 + 6)*i,0));
@@ -74,6 +70,10 @@ function setup() {
   let safarik = new Sprite(resources.safarik.texture);
   safarik.position.set(-800, -800);
   world.addChild(safarik);
+
+  /* create player */
+  player = new Player(100,100, resources.roket.texture);
+  world.addChild(player);
 
   /* setup ticker */
   app.ticker.add(tick);
