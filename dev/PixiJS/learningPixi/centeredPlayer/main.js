@@ -102,4 +102,5 @@ function tick(dt) {
   player.move(dt);
   world.centerTo(player);
   world.rotateTo(player);
+  world.scaleTo(player);
 }

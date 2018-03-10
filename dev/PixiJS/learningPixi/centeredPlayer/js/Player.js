@@ -20,8 +20,8 @@ class Player extends Sprite {
 
     this.aspeed = 0; // angular speed, radians per sec
     this.targetASpeed = 0; // target angular speed
-    this.aspeeda = Math.PI/4; // angular speed acceleration, radians per sec^2
-    this.maxASpeed = Math.PI/3; // maximal angular speed
+    this.aspeeda = Math.PI; // angular speed acceleration, radians per sec^2
+    this.maxASpeed = Math.PI*2; // maximal angular speed
   }
 
   setKeys(keys) {
