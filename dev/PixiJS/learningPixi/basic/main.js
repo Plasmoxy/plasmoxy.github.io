@@ -23,9 +23,7 @@ loader
 /* logic */
 
 let player, walls, camera;
-
 let keys;
-
 
 function setup() {
 
@@ -67,7 +65,10 @@ function update() {
 }
 
 function tick(dt) {
+  camera.move(dt); // always move camera first before calculating renderer relatives !
+
+  // center the player relative to renderer
   player.position.x = app.renderer.width/2 - app.stage.position.x;
   player.position.y = app.renderer.height/2 - app.stage.position.y;
-  camera.move(dt);
+
 }

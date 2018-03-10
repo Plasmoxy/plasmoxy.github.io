@@ -19,7 +19,16 @@ class KeyboardKey {
       if (!this.state && this.pressed) this.pressed();
       this.state = true;
     }
-    event.preventDefault();
+
+    /* prevent all handlers except F11 and F5 */
+    switch (event.keyCode) {
+      case 122: break; // f5
+      case 116: break; // f11
+      case 27: break; // esc
+      case 123: break; // f12
+      default:
+        event.preventDefault();
+    }
   }
 
   upHandler(event) {

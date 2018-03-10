@@ -1,3 +1,5 @@
+/* simple camera reference controller for a stage Container */
+
 class Camera {
   constructor(container) {
     this.c = container;
@@ -16,7 +18,7 @@ class Camera {
 
     keys.down.pressed = () => {this.v.y -= this.speed; };
     keys.down.released = () => {this.v.y += this.speed; };
-  
+
     keys.left.pressed = () => {this.v.x -= this.speed; };
     keys.left.released = () => {this.v.x += this.speed; };
 
