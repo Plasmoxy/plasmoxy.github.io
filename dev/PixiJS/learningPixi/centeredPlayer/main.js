@@ -19,6 +19,7 @@ loader
   .add('roket', '/assets/sprites/aquaroket.png')
   .add('tileset', 'tileset.png')
   .add('safarik', '/assets/sprites/safarik.png')
+  .add('bootlegstars', '/assets/sprites/bootlegstars.png')
   .load(setup)
 ;
 
@@ -33,7 +34,7 @@ window.addEventListener('resize', function() {
 
 /* logic */
 
-let world, gui;
+let world, gui, bg;
 let player;
 let keys;
 
@@ -42,6 +43,10 @@ function setup() {
   /* create world */
   world = new World();
   app.stage.addChild(world);
+
+  let bg = new PIXI.extras.TilingSprite(resources.bootlegstars.texture, 10000, 10000);
+  bg.position.set(-5000, -5000);
+  world.addChild(bg);
 
   /* create gui */
   gui = new Gui();
