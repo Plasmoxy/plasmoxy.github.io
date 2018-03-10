@@ -47,7 +47,7 @@ function setup() {
   /* create gui */
   gui = new Gui();
   app.stage.addChild(gui);
-  temp = new CoolText("Hello darkness");
+  temp = new CoolText("Hello darkness 2");
     temp.x = 50;
     temp.y = 50;
     gui.addChild(temp);
