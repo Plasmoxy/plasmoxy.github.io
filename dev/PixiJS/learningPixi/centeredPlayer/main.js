@@ -40,6 +40,8 @@ let keys;
 
 function setup() {
 
+  document.getElementById('loading').style.display = 'none';
+
   /* create world */
   world = new World();
   app.stage.addChild(world);
