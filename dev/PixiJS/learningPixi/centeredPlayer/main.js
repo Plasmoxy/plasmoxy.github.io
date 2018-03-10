@@ -54,7 +54,7 @@ function setup() {
   temp = null;
 
   /* create player */
-  player = new Player(0,0, resources.roket.texture);
+  player = new Player(100,100, resources.roket.texture);
   world.addChild(player);
 
   /* add some debug walls */
@@ -87,6 +87,7 @@ function update() {
 }
 
 function tick(dt) {
+  player.animateMovement(dt);
   player.move(dt);
   world.centerTo(player);
   world.rotateTo(player);
