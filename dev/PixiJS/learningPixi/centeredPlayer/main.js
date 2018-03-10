@@ -21,15 +21,6 @@ loader
   .load(setup)
 ;
 
-/* custom html util */
-window.addEventListener('orientationchange', function ()
-{
-    if (window.innerHeight > window.innerWidth)
-    {
-        document.getElementsByTagName('body')[0].style.transform = "rotate(90deg)";
-    }
-});
-
 window.addEventListener('resize', function() {
   w = window.innerWidth;
   h = window.innerHeight;
