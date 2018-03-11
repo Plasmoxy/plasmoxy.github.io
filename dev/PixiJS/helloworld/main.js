@@ -37,7 +37,7 @@ function setup() {
     renderer.resize(window.innerWidth, window.innerHeight);
   });
 
-  window.addEventListener('mousemove', function(e) {
+  if(!MOBILE) window.addEventListener('mousemove', function(e) {
     fak.target.x = e.pageX;
     fak.target.y = e.pageY;
   });
