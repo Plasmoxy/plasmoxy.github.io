@@ -70,7 +70,7 @@ const before = `<!DOCTYPE html>
     a {
       display: inline-block;
       color: #111;
-      font-size: 100px;
+      font-size: 6em;
       text-decoration: none;
       margin: 0.1em 0.1em 0.1em 0.1em;
       padding: 0 0.1em 0 0.1em;
@@ -79,7 +79,7 @@ const before = `<!DOCTYPE html>
       border-radius: 50px;
     }
     a:hover {
-      font-size: 200px;
+      font-size: 8em;
     }
 
     .dir {
@@ -112,7 +112,7 @@ const before = `<!DOCTYPE html>
       width: 20em;
     }
     #bacc:hover {
-      width: 50em;
+      width: 40em;
     }
   </style>
 </head>
