@@ -1,6 +1,8 @@
 class Player extends Sprite {
-  constructor(x,y,texture) {
+  constructor(x,y,texture, movekeys) {
     super(texture);
+
+    this.movekeys = movekeys;
 
     this.position.x = x;
     this.position.y = y;
@@ -21,29 +23,9 @@ class Player extends Sprite {
     this.aspeed = 0; // angular speed, radians per sec
     this.targetASpeed = 0; // target angular speed
     this.aspeeda = Math.PI*2; // angular speed acceleration, radians per sec^2
-    this.maxASpeed = Math.PI*1; // maximal angular speed
-  }
-
-  setKeys(keys) {
-
-    // lambdas were defined here, therefore this always refers to player object ? hmm
-    /*
-    // btw remember the coordinate system is different than normal my dude
-    keys.up.pressed = () => { this.targetSpeed += this.maxSpeed; };
-    keys.up.released = () => { this.targetSpeed -= this.maxSpeed; };
-
-    // key decellerate twice as fast
-    keys.down.pressed = () => { this.targetSpeed -= this.maxSpeed; };
-    keys.down.released = () => { this.targetSpeed += this.maxSpeed; };
-
-    keys.left.pressed = () => { this.targetASpeed -= this.maxASpeed; };
-    keys.left.released = () => { this.targetASpeed += this.maxASpeed; };
-
-    keys.right.pressed = () => { this.targetASpeed += this.maxASpeed; };
-    keys.right.released = () => { this.targetASpeed -= this.maxASpeed; };
-
-    */
-
+    this.aspeeda_a = this.aspeeda; // reserve angular speed acceleration
+    this.aspeeda_d = this.aspeeda*2; // reserve angular speed decceleration
+    this.maxASpeed = Math.PI; // maximal angular speed
   }
 
   move(dt) {
@@ -51,14 +33,14 @@ class Player extends Sprite {
     /* I decided to go for conditional handling as for various bugs when using math input handling */
 
     this.targetSpeed = ( () => {
-      let u = keys.up.state, d = keys.down.state;
+      let u = this.movekeys.up.state, d = this.movekeys.down.state;
            if (u && !d) return this.maxSpeed;
       else if (!u && d) return -this.maxSpeed;
       else if ( (u && d) || (!u && !d) ) return 0;
     })();
 
     this.targetASpeed = ( () => {
-      let l = keys.left.state, r = keys.right.state;
+      let l = this.movekeys.left.state, r = this.movekeys.right.state;
            if (l && !r) return -this.maxASpeed;
       else if (!l && r) return this.maxASpeed;
       else if ( (l && r) || (!l && !r) ) return 0;
@@ -89,11 +71,14 @@ class Player extends Sprite {
 
     /* angular speed */
 
+    if (this.targetASpeed == 0) this.aspeeda = this.aspeeda_d;
+    else this.aspeeda = this.aspeeda_a;
+
     if (this.aspeed < this.targetASpeed) this.aspeed += this.aspeeda * (dt/60);
     else if (this.aspeed > this.targetASpeed) this.aspeed -= this.aspeeda * (dt/60);
 
-    if (this.aspeed > 0 && this.aspeed < (dt/60)) this.aspeed = 0;
-    else if (this.aspeed < 0 && this.aspeed > -(dt/60)) this.aspeed = 0;
+    if (this.aspeed > 0 && this.aspeed < this.aspeeda * (dt/60)) this.aspeed = 0;
+    else if (this.aspeed < 0 && this.aspeed > -this.aspeeda*(dt/60)) this.aspeed = 0;
 
     console.log('speed = ' + this.speed + ', aspeed = ' + this.aspeed);
 

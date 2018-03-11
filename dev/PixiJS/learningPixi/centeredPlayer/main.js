@@ -38,29 +38,49 @@ window.addEventListener('resize', function() {
 
 let world, gui, bg;
 let player;
-let keys;
+let movekeys;
 
 function setup() {
 
   document.getElementById('loading').style.display = 'none';
   app.view.style.display = "block";
 
+  /* create background */
+  bg = new Background(0.5);
+  app.stage.addChild(bg);
+
   /* create world */
   world = new World();
   app.stage.addChild(world);
 
-  let bg = new PIXI.extras.TilingSprite(resources.bootlegstars.texture, 10000, 10000);
-  bg.position.set(-5000, -5000);
-  world.addChild(bg);
-
   /* create gui */
   gui = new Gui();
   app.stage.addChild(gui);
+
+  /* define control */
+  movekeys = {
+    up: new KeyboardKey(38),
+    down: new KeyboardKey(40),
+    left: new KeyboardKey(37),
+    right: new KeyboardKey(39)
+  };
+
+  /* BACKGROUND STUFF */
+
+
+  let bgsprite = new PIXI.extras.TilingSprite(resources.bootlegstars.texture, 10000, 10000);
+  bgsprite.position.set(-5000, -5000);
+  bg.addChild(bgsprite);
+
+  /* GUI STUFF */
+
   let temp = new CoolText("Hello fag this is Sample Textzt");
     temp.x = 50;
     temp.y = 50;
     gui.addChild(temp);
   temp = null;
+
+  /* WORLD STUFF */
 
   /* add some debug walls */
   let walls = new Container();
@@ -76,21 +96,20 @@ function setup() {
   safarik.position.set(-800, -800);
   world.addChild(safarik);
 
-  /* create player */
-  player = new Player(100,100, resources.roket.texture);
-  world.addChild(player);
-
-  /* setup ticker */
-  app.ticker.add(tick);
-
   /* define control */
-  keys = {
+  movekeys = {
     up: new KeyboardKey(38),
     down: new KeyboardKey(40),
     left: new KeyboardKey(37),
     right: new KeyboardKey(39)
   };
-  player.setKeys(keys);
+
+  /* create player */
+  player = new Player(100,100, resources.roket.texture, movekeys);
+  world.addChild(player);
+
+  /* setup ticker */
+  app.ticker.add(tick);
 
   /* start rendering */
   update();
@@ -105,4 +124,6 @@ function tick(dt) {
   player.move(dt);
   world.centerTo(player);
   world.rotateTo(player);
+  bg.centerTo(player);
+  bg.rotateTo(player);
 }
