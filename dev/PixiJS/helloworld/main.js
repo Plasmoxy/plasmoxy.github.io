@@ -44,8 +44,8 @@ function setup() {
 
   if(MOBILE) document.body.addEventListener('touchstart', function(e){ // only on mobile
       var t = e.changedTouches;
-      fak.target.x = t[i].pageX;
-      fak.target.y = t[i].pageY;
+      fak.target.x = t[0].pageX;
+      fak.target.y = t[0].pageY;
   }, false)
 
   ticker.add(tick);
