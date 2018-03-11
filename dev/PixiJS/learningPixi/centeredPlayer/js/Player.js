@@ -13,7 +13,7 @@ class Player extends Sprite {
     this.scale.set(0.5, 0.5);
 
     this.direction = -Math.PI/2; // global player direction, -PI/2 means up, uses y-inverted unit circle angle logic
-    this.v = new Victor(); // velocity vector
+    this.v = new Victor(); // velocity vector, IMPORTANT : velocity is calculated internally from speed and direction through move(dt) !!
 
     this.speed = 0; // px per sec
     this.speeda = 200; // speed acceleration, px per sec^2
