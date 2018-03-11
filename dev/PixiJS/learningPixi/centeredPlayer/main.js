@@ -22,8 +22,13 @@ loader
   .add('tileset', 'tileset.png')
   .add('safarik', '/assets/sprites/safarik.png')
   .add('bootlegstars', '/assets/sprites/bootlegstars.png')
+  .on('progress', loadProgressHandler)
   .load(setup)
 ;
+
+function loadProgressHandler(ldr, res) { // loader, resource
+  console.log('LOADING [ '+Math.round(ldr.progress)+'% ] : ' + res.name + ' -> ' + res.url);
+}
 
 window.addEventListener('resize', function() {
   w = window.innerWidth;
@@ -39,6 +44,7 @@ window.addEventListener('resize', function() {
 let world, gui, bg;
 let player;
 let movekeys;
+let camera;
 
 function setup() {
 
@@ -56,6 +62,9 @@ function setup() {
   /* create gui */
   gui = new Gui();
   app.stage.addChild(gui);
+
+  /* create camera */
+  camera = new Camera(world);
 
   /* define control */
   movekeys = {
@@ -88,6 +97,7 @@ function setup() {
   walls.sprites.forEach((w,i) => {
     walls.addChild(w);
   });
+  walls.pivot.set(walls.width/2, walls.width/2);
   walls.position.set(0,0);
   world.addChild(walls);
 
@@ -122,8 +132,8 @@ function update() {
 function tick(dt) {
   player.animateMovement(dt);
   player.move(dt);
-  world.centerTo(player);
-  world.rotateTo(player);
+  camera.follow(player);
+  camera.followRotation(player);
   bg.centerTo(player);
   bg.rotateTo(player);
 }

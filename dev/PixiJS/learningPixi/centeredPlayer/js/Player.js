@@ -18,7 +18,7 @@ class Player extends Sprite {
     this.speed = 0; // px per sec
     this.speeda = 200; // speed acceleration, px per sec^2
     this.targetSpeed = 0; // target speed, to which animator reacts
-    this.maxSpeed = 1000; // limit the speed for animator
+    this.maxSpeed = 300; // limit the speed for animator
 
     this.aspeed = 0; // angular speed, radians per sec
     this.targetASpeed = 0; // target angular speed
@@ -80,7 +80,7 @@ class Player extends Sprite {
     if (this.aspeed > 0 && this.aspeed < this.aspeeda * (dt/60)) this.aspeed = 0;
     else if (this.aspeed < 0 && this.aspeed > -this.aspeeda*(dt/60)) this.aspeed = 0;
 
-    console.log('speed = ' + this.speed + ', aspeed = ' + this.aspeed);
+    //console.log('speed = ' + this.speed + ', aspeed = ' + this.aspeed);
 
 
   }
