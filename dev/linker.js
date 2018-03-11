@@ -37,8 +37,8 @@ const before = `<!DOCTYPE html>
   <meta name="theme-color" content="#00ffe0">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="/assets/fonts/amatic_sc/amatic_sc.css" rel="stylesheet">
+  <script src="/assets/jquery.min.js"></script>
   <script src="/assets/js/pmxy.js"></script>
   <style>
     body {
