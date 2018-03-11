@@ -15,43 +15,61 @@
   <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
 
   <!-- STYLES -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/swaggybuttons.css">
+  <link rel="stylesheet" href="/assets/bs/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="assets/css/swaggybuttons.css"> -->
   <link rel="stylesheet" href="style.css">
 
 
   <!-- SCRIPTS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/assets/jquery.min.js"></script>
+  <script src="/assets/bs/bootstrap.min.js"></script>
   <script src="/assets/js/pmxy.js"></script>
 
 </head>
 <body>
 
-<div class="container">
-<div id="titleContainer" onload="startRainbow()" class="jumbotron text-center titleContainer" style="background: hsl(0, 70%, 50%);">
-<h1><span id="title" class="blacc">Plasmoxy</span></h1>
-<p id="subtitle" class="blacc">YES, THAT'S HOW I CALLED MYSELF, BTW WELCOME TRAVELER !</p>
-  <div id="roundcorners" class="colr-sm-4">
-    <a href="/dev" class="btn btn-primary raised vibrantRed">DEV</a>
-    <a href="http://github.com/Plasmoxy" class="btn btn-primary raised cyan">My GitHub</a>
-    <a href="http://github.com/ShardBytes" class="btn btn-primary raised">ShardBytes GitHub</a>
-  </div>
-</div>
+<div id="root" class="container">
 
-<div class="container">
-<div class="row">
-  <div class="col-sm-8">
-    <h3 class="cyanhighlight">How to become a Sebu:</h3>
-    <p>- Don't.</p>
+  <div id="titleContainer" onload="startRainbow()" class="jumbotron text-center titleContainer" style="background: hsl(0, 70%, 50%);">
+    <h1><span id="title" class="blacc">Plasmoxy</span></h1>
+    <p id="subtitle" class="blacc">YES, THAT'S HOW I CALLED MYSELF, BTW WELCOME TRAVELER !</p>
+    <div class="colr-sm-4 roundcorners">
+      <a href="/dev" class="btn btn-danger btn-lg blacc">DEV</a>
+      <a href="http://github.com/Plasmoxy" class="btn btn-warning btn-lg blacc">My GitHub</a>
+      <a href="http://github.com/ShardBytes" class="btn btn-warning btn-lg blacc">ShardBytes GitHub</a>
+    </div>
   </div>
-  <div class="col-sm-8">
-    <h3 class="cyanhighlight">Succ ?</h3>
-    <p>- Yes.</p>
-  </div>
-</div>
-</div>
 
+  <div id="content text-white bg-dark" class="container">
+
+    <div class="row">
+      <div class="col-lg-6 mb-3 d-flex align-items-center">
+        <div class="card bg-dark align-items-center">
+            <img src="/assets/img/expecte.jpg" width="100%">
+        </div>
+
+      </div>
+      <div class="col-lg-6 mb-3">
+        <div class="card text-white bg-dark">
+          <div class="card-header text-center bg-danger blacc"> <h2> Hello, traveler ! <h2> </div>
+          <div class="card-body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt nibh a leo vehicula, ut dapibus nisi imperdiet. Donec tincidunt, arcu ac laoreet malesuada, tortor nunc placerat lectus, nec venenatis leo dui eu nisl. Sed non mi vehicula, porta ante semper, sagittis mi. Donec volutpat metus id est euismod dictum et malesuada nisl. Quisque cursus sollicitudin neque, et bibendum orci maximus sit amet. Aenean sed nulla mollis, molestie odio eget, suscipit tortor. Cras hendrerit facilisis urna, nec rhoncus massa sollicitudin eget.
+
+Vestibulum pulvinar feugiat sagittis. Aenean mollis eget mi eu luctus. Aliquam nunc tellus, facilisis at urna ut, luctus vestibulum turpis. Etiam tempus nisi quis tempus luctus. Nullam tempor odio non ipsum vestibulum vestibulum. Donec a dui nec nibh sollicitudin dignissim. Aliquam sagittis, massa et viverra sodales, lectus est ultrices massa, nec ornare libero tellus ac nulla. Vestibulum ut porttitor nulla, eu mollis dolor.
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h3 class="cyanhighlight">Succ ?</h3>
+        <p>- Yes.</p>
+      </div>
+      <div class="col-lg-6">
+        <h3 class="cyanhighlight">Yes ?</h3>
+        <p>- Yes.</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <script src="rainbow.js"></script>

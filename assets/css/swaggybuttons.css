@@ -1,8 +1,9 @@
 .btn {
   padding: 10px 20px;
   border: 0 none;
-  font-weight: 700;
+  font-family: "Ostrich Sans";
   letter-spacing: 1px;
+  font-size: 200%;
   text-transform: uppercase;
 }
 
