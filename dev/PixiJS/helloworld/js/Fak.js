@@ -18,12 +18,13 @@ class Fak extends PIXI.Sprite {
   }
 
   headToTarget() {
-    this.velocity.x = (this.target.x - this.position.x)/2;
-    this.velocity.y = (this.target.y - this.position.y)/2;
+    let dx = (this.target.x - this.position.x)/2, dy = (this.target.y - this.position.y)/2;
+    this.velocity.x = 2*dx;
+    this.velocity.y = 2*dy;
   }
 
-  move() {
-    this.x += this.velocity.x/50;
-    this.y += this.velocity.y/50;
+  move(dt) {
+    this.x += (this.velocity.x)*(dt/60);
+    this.y += (this.velocity.y)*(dt/60);
   }
 }
