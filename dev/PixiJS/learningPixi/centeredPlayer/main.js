@@ -65,6 +65,7 @@ function setup() {
 
   /* create camera */
   camera = new Camera(world);
+  camera.scale = 2;
 
   /* define control */
   movekeys = {

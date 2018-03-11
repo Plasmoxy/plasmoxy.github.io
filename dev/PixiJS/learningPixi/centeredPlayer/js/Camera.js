@@ -3,6 +3,10 @@ class Camera {
     this.c = c;
   }
 
+  // link scale
+  set scale(sc) { this.c.scale.set(sc, sc); }
+  get scale() { return this.c.scale.x; }
+
   follow(target) {
     /* set container origin to target position
      * IMPORTANT : this doesn't affect the internal container coordinate system,
