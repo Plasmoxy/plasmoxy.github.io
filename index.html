@@ -15,6 +15,7 @@
   <!-- STYLES -->
   <link rel="stylesheet" href="/assets/bs/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/bs/pmxy/colorbuttons.css">
+  <link rel="stylesheet" href="/assets/css/pmxyloader.css">
 
   <link rel="stylesheet" href="style.css">
 
@@ -28,10 +29,14 @@
 </head>
 <body>
 
+<div id="loading_div" class="pmxyloader-root">
+  <div class="pmxyloader"></div>
+</div>
+
 <div id="superroot">
   <div id="root" class="container">
 
-    <div id="titleContainer" onload="startRainbow()" class="jumbotron text-center titleContainer" style="background: hsl(0, 70%, 50%);">
+    <div id="titleContainer" onload="startRainbow()" class="jumbotron text-center titleContainer">
       <h1><span id="title" class="blacc">Plasmoxy</span></h1>
       <p id="subtitle" class="blacc">That's me. Welcome to my web lair.</p>
       <div class="colr-sm-4 roundcorners pb-1">
