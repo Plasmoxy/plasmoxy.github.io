@@ -28,6 +28,10 @@
   background: #0f0f0f;
 }
 
+.vw_btn {
+  font-size: 1rem;
+}
+
 body {
   background-color: #0f0f0f;
   color: white;
