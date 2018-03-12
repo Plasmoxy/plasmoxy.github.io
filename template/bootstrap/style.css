@@ -1,0 +1,48 @@
+/* style for plasmoxy.github.io by Plasmoxy */
+
+.roundcorners {
+    border-radius: 5px;
+    background: #0f0f0f;
+    padding: 15px;
+}
+
+/* COLORS */
+
+.text-red {
+  color: rgb(255, 0, 92);
+}
+
+.text-cyan {
+  color: #00ffe0;
+}
+
+.bg-cyan {
+  background: #00ffe0;
+}
+
+.blacc {
+  color: #0f0f0f;
+}
+
+.nightbg {
+  background: #0f0f0f;
+}
+
+.title {
+  font-family: 'Calibri';
+  font-size: 3em;
+}
+
+.subtitle {
+  font-family: 'Pathway Gothic One';
+  font-size: 2rem;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: white;
+}
+
+#content {
+
+}
