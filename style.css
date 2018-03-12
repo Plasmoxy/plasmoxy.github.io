@@ -40,12 +40,12 @@ body {
 #title {
   font-family: 'Ostrich Sans';
   font-weight: bold;
-  font-size: 3em;
+  font-size: 5rem;
 }
 
 #subtitle {
   font-family: 'Pathway Gothic One';
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 #content {
