@@ -13,8 +13,8 @@
 
   border: 7px solid #111;
   border-radius: 50%;
-  border-left: 7px solid white;
-  border-right: 7px solid white;
+  border-left: 7px solid #d99d26; /* SET YOUR COLORS HERE *//
+  border-right: 7px solid #d99d26;
 
   width: 7em;
   height: 7em;
