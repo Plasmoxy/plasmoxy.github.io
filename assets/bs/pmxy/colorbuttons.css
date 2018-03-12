@@ -1,0 +1,44 @@
+/* cyan button */
+.btn-cyan {
+  color: #111;
+  background-color: #1ee7cf;
+  border-color: #1bdada;
+}
+
+.btn-cyan:hover {
+  color: #111;
+  background-color: #18d0ba;
+  border-color: #1bdada;
+}
+
+.btn-cyan:focus, .btn-cyan.focus {
+  box-shadow: 0 0 0 0.2rem rgba(30, 241, 241, 0.5);
+}
+
+.btn-cyan.disabled, .btn-cyan:disabled {
+  color: #111;
+  background-color: #bdbfff;
+  border-color: #95e7df;
+}
+
+/* cyan button */
+.btn-outline-cyan {
+  color: #1ee7cf;
+  border-color: #1bdada;
+}
+
+.btn-outline-cyan:hover {
+  color: #111;
+  background-color: #1ee7cf;
+  border-color: #1bdada;
+}
+
+.btn-outline-cyan:focus, .btn-outline-cyan.focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
+
+.btn-cyan.disabled, .btn-cyan:disabled {
+  color: #111;
+  background-color: #bdbfff;
+  border-color: #28a745;
+}

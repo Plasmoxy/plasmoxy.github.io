@@ -28,10 +28,6 @@
   background: #0f0f0f;
 }
 
-.vw_btn {
-  font-size: 1em;
-}
-
 body {
   background-color: #0f0f0f;
   color: white;
@@ -47,6 +43,7 @@ body {
   font-family: 'Ostrich Sans';
   font-weight: bold;
   font-size: 5rem;
+
 }
 
 #subtitle {
