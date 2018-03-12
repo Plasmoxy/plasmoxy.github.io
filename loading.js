@@ -1,4 +1,4 @@
-
+/*
 (function() {
 
   let pathway = new FontFaceObserver('Pathway Gothic One');
@@ -15,3 +15,4 @@
   });
 
 })();
+*/
