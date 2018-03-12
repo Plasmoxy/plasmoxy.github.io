@@ -27,70 +27,74 @@
 </head>
 <body>
 
-<div id="root" class="container">
+<div id="superroot">
+  <div id="root" class="container">
 
-  <div id="titleContainer" onload="startRainbow()" class="jumbotron text-center titleContainer" style="background: hsl(0, 70%, 50%);">
-    <h1><span id="title" class="blacc">Plasmoxy</span></h1>
-    <p id="subtitle" class="blacc">That's me. Welcome to my web lair.</p>
-    <div class="colr-sm-4 roundcorners pb-1">
+    <div id="titleContainer" onload="startRainbow()" class="jumbotron text-center titleContainer" style="background: hsl(0, 70%, 50%);">
+      <h1><span id="title" class="blacc">Plasmoxy</span></h1>
+      <p id="subtitle" class="blacc">That's me. Welcome to my web lair.</p>
+      <div class="colr-sm-4 roundcorners pb-1">
 
-      <a href="/dev" class="btn btn-outline-light btn-lg mb-2">cd /dev</a>
-      <a href="http://github.com/Plasmoxy" class="btn btn-outline-warning btn-lg  mb-2">My GitHub</a>
-      <a href="http://github.com/ShardBytes" class="btn btn-outline-cyan btn-lg mb-2">ShardBytes GitHub</a>
+        <a href="/dev" class="btn btn-outline-light btn-lg mb-2">cd /dev</a>
+        <a href="http://github.com/Plasmoxy" class="btn btn-outline-warning btn-lg  mb-2">My GitHub</a>
+        <a href="http://github.com/ShardBytes" class="btn btn-outline-cyan btn-lg mb-2">ShardBytes GitHub</a>
 
-    </div>
-  </div>
-
-  <div id="content" class="container text-white">
-
-    <div class="row">
-
-      <div class="col-lg-6 mb-3 d-flex align-items-center justify-content-center">
-        <div class="card bg-dark align-items-center">
-            <img src="/assets/img/expecte.jpg" width="100%">
-        </div>
       </div>
+    </div>
 
-      <div class="col-lg-6 mb-3">
-        <div class="card text-white bg-dark">
-          <div class="card-header bg-cyan blacc pb-1 text-center"> <h3> Hello, traveler ! <h3> </div>
-          <div class="card-body text-center">
-            <p class="text-cyan">Checc dev, here som projects m8 : </p>
-            <p>
-              <a href="/learningPixi" class="btn btn-light btn-block blacc mb-2 mt-2">Learning PIXI.js</a>
-              <a href="/school/oajaskyna" class="btn btn-warning btn-block blacc mb-2 mt-2">Ochtina Aragonite Cave [SK]</a>
-            </p>
+    <div id="content" class="container text-white">
+
+      <div class="row">
+
+        <div class="col-lg-6 mb-3 d-flex align-items-center justify-content-center">
+          <div class="card bg-dark align-items-center">
+              <img src="/assets/img/expecte.jpg" width="100%">
           </div>
         </div>
-      </div>
 
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6">
-        <h3 class="text-cyan">Succ ?</h3>
-        <p>- Yes.</p>
-      </div>
-
-      <div class="col-lg-6">
-        <h3 class="text-cyan">Yes ?</h3>
-        <p>- Yes.</p>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-      <div class="row justify-content-center mt-5 mb-2">
-        <div class="card bg-dark text-white px-5">
-          <div class="card-body p-1 px-5">
-            (C) <a href="https://github.com/Plasmoxy">Plasmoxy</a> 2018
+        <div class="col-lg-6 mb-3">
+          <div class="card text-white bg-dark">
+            <div class="card-header bg-cyan blacc pb-1 text-center"> <h3> Hello, traveler ! <h3> </div>
+            <div class="card-body text-center">
+              <p class="text-cyan">Checc dev, here som projects m8 : </p>
+              <p>
+                <a href="/learningPixi" class="btn btn-light btn-block blacc mb-2 mt-2">Learning PIXI.js</a>
+                <a href="/school/oajaskyna" class="btn btn-warning btn-block blacc mb-2 mt-2">Ochtina Aragonite Cave [SK]</a>
+              </p>
+            </div>
           </div>
         </div>
+
       </div>
-  </footer>
-</div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 class="text-cyan">Succ ?</h3>
+          <p>- Yes.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h3 class="text-cyan">Yes ?</h3>
+          <p>- Yes.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+        <div class="row justify-content-center mt-5 mb-2">
+          <div class="card bg-dark text-white px-5">
+            <div class="card-body p-1 px-5">
+              (C) <a href="https://github.com/Plasmoxy">Plasmoxy</a> 2018
+            </div>
+          </div>
+        </div>
+    </footer>
+    
+  </div> <!-- /root -->
+</div> <!-- /superroot -->
 
 <script src="rainbow.js"></script>
+<script src="loading.js"></script>
 
 </body>
 </html>

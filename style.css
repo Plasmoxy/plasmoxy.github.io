@@ -42,6 +42,10 @@ body {
   color: white;
 }
 
+#superroot {
+  display: none;
+}
+
 #titleContainer {
   border-radius: 3px;
   margin-top: 20px;

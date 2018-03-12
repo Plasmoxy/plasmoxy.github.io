@@ -1,17 +1,20 @@
-console.log('starting rainbow.js')
-var rainbow_hue = 360;
-var titleContainer = document.getElementById("titleContainer");
+/* rainbow.js by Plasmoxy */
 
-var newHue;
-setInterval(function() {
-  newHue =  (rainbow_hue+50)%360;
-  $('#titleContainer').css('background', "hsl(" + newHue + ", 70%, 50%)");
-  $('meta[name=theme-color]').attr('content', pmxyjs.hslToHex(newHue, 70, 50));
+(function() {
+  console.log('[rainbow.js] starting loop ...')
 
-  if (rainbow_hue > 0) {
-    rainbow_hue--;
-  } else {
-    rainbow_hue = 360;
-  }
+  let rainbow_hue = 360;
+  let newHue;
+  setInterval(function() {
+    newHue =  (rainbow_hue+50)%360;
+    $('#titleContainer').css('background', "hsl(" + newHue + ", 70%, 50%)");
+    $('meta[name=theme-color]').attr('content', pmxyjs.hslToHex(newHue, 70, 50));
 
-}, 100);
+    if (rainbow_hue > 0) {
+      rainbow_hue--;
+    } else {
+      rainbow_hue = 360;
+    }
+
+  }, 100);
+})();
