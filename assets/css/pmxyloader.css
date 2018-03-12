@@ -11,10 +11,10 @@
 .pmxyloader {
   z-index: -10;
 
-  border: 7px solid #111;
+  border: 7px solid rgba(0,0,0,0);
   border-radius: 50%;
-  border-left: 7px solid #d99d26; /* SET YOUR COLORS HERE *//
-  border-right: 7px solid #d99d26;
+  border-left: 7px solid #00ffe0; /* SET YOUR COLORS HERE */
+  border-right: 7px solid #00ffe0;
 
   width: 7em;
   height: 7em;
