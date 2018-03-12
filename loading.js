@@ -11,7 +11,7 @@
       setTimeout(function() {
         $('#superroot').css('display', 'inline');
       }, 100);
-    }, 1000);
+    }, 500);
   });
 
 })();
