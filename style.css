@@ -6,12 +6,18 @@
     padding: 15px;
 }
 
-.redhighlight {
+/* COLORS */
+
+.text-red {
   color: rgb(255, 0, 92);
 }
 
-.cyanhighlight {
-  color:#00ffe0;
+.text-cyan {
+  color: #00ffe0;
+}
+
+.bg-cyan {
+  background: #00ffe0;
 }
 
 .blacc {
@@ -20,10 +26,6 @@
 
 .nightbg {
   background: #0f0f0f;
-}
-
-.text-primary {
-  color: red;
 }
 
 body {
