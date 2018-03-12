@@ -13,8 +13,8 @@
 
   border: 7px solid rgba(0,0,0,0);
   border-radius: 50%;
-  border-left: 7px solid #00ffe0; /* SET YOUR COLORS HERE */
-  border-right: 7px solid #00ffe0;
+  border-left: 7px solid #ffc107; /* SET YOUR COLORS HERE */
+  border-right: 7px solid #ffc107;
 
   width: 7em;
   height: 7em;
