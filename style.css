@@ -28,6 +28,15 @@
   background: #0f0f0f;
 }
 
+/* specific */
+
+a {
+  color: #00ffe0;
+}
+a:hover {
+  color: #ffc107;
+}
+
 body {
   background-color: #0f0f0f;
   color: white;
