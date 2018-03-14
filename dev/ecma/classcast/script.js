@@ -8,18 +8,21 @@ class A { // pure data class for transfer
 
 
 class B extends A { // augmented class for performance
-
   constructor(id,x,y) {
     super(id,x,y);
     this.bonus = 44;
   }
 
   static fromA(a) {
-    return new B(a.id, a.x, a.y);
+    let temp = new B();
+    Object.assign(temp, a);
+    return temp;
   }
 
   toA() {
-    return new A(this.id, this.x, this.y)
+    let temp = new A();
+    Object.assign(temp, this);
+    return temp;
   }
 
   print() {
