@@ -6,12 +6,6 @@
 
 class Camera {
 
-  constructor(c) { // c = container to influence
-    this.c = c;
-    this.centerToRenderer();
-    this.scale = 0.7 // default scale
-  }
-
   // scale as property
   set scale(sc) { this.c.scale.set(sc, sc); }
   get scale() { return this.c.scale.x; }
@@ -21,6 +15,12 @@ class Camera {
   set y(val) {this.c.pivot.y = val;}
   get x() {return this.c.pivot.x;}
   get y() {return this.c.pivot.y;}
+
+  constructor(c) { // c = container to influence
+    this.c = c;
+    this.centerToRenderer();
+    this.scale = 0.7 // default scale
+  }
 
   centerToRenderer() {
     /* position the camera to center of the renderer
