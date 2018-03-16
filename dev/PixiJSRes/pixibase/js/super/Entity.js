@@ -7,14 +7,17 @@ class Entity extends Container {
   get y() {return this.position.y;}
   set y(val) {this.position.y = val;}
 
-  constuctor(sprite_texture) {
-    super()
+  constructor(sprite_texture) {
+    super();
+
+    // load sprite for entity
     this.sprite = new Sprite(sprite_texture);
-    this.sprite.anchor.set(0.5, 0.5);
+    this.sprite.anchor.set(0.5, 0.5); // set sprite anchor to center
+    this.addChild(this.sprite);
   }
 
   update(dt) {
-
+    
   }
 
 }
