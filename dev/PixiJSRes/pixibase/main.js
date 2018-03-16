@@ -27,7 +27,18 @@ function loadProgressHandler(ldr, res) { // loader, resource
 /* define game variables */
 let bg, world, gui, camera, mkeys; // basic
 
+let a,b;
+
 /* PIXI loader */
+
+let resDef = [
+  ['rk', '/assets/sprites/aquaroket.png']
+];
+
+resDef.forEach(t => {
+  loader.add(t[0], t[1]);
+});
+
 loader
   .on('progress', loadProgressHandler)
   .load(setup)
@@ -57,7 +68,13 @@ function setup() {
 
   /* -- INIT GAME --- */
 
-  
+  a = new Entity(resources.rk.texture);
+  a.collider = new BoxCollider(a);
+  world.addChild(a);
+
+  b = new Entity(resources.rk.texture);
+  b.collider = new BoxCollider(b);
+  world.addChild(b);
 
   /* --- end INIT GAME ---*/
 
@@ -73,7 +90,7 @@ function update() {
 }
 
 function tick(dt) {
-
+  a.collider.detect(b);
 }
 
 // add some other listeners in the end

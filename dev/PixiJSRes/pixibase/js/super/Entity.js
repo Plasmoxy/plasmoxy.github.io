@@ -14,10 +14,11 @@ class Entity extends Container {
     this.sprite = new Sprite(sprite_texture);
     this.sprite.anchor.set(0.5, 0.5); // set sprite anchor to center
     this.addChild(this.sprite);
+
+    this.collider = undefined;
   }
 
-  update(dt) {
-    
-  }
+  update(dt) {}
+  colliding(target, x, y) {}
 
 }
