@@ -28,6 +28,7 @@ function loadProgressHandler(ldr, res) { // loader, resource
 let bg, world, gui, camera, mkeys; // basic
 
 let a,b;
+let dcontroller;
 
 /* PIXI loader */
 
@@ -76,6 +77,8 @@ function setup() {
   b.collider = new BoxCollider(b);
   world.addChild(b);
 
+  dcontroller = new DebugEntityController(mkeys, a, 5);
+
   /* --- end INIT GAME ---*/
 
   /* setup ticker */
@@ -90,6 +93,7 @@ function update() {
 }
 
 function tick(dt) {
+  dcontroller.update(dt);
   a.collider.detect(b);
 }
 
