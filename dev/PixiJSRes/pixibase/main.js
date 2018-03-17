@@ -109,6 +109,7 @@ function setup() {
 function update() {
   requestAnimationFrame(update);
   if ( fmeter ) fmeter.tick()
+
 }
 
 function tick(dt) {
