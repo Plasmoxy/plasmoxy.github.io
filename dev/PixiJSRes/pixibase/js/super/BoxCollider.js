@@ -1,12 +1,11 @@
 
 class BoxCollider extends Collider {
 
-  constructor(ent) {
+  constructor(ent, w, h) {
     super(ent);
-    this.ent = ent;
 
-    this.w = ent.width;
-    this.h = ent.height;
+    this.w = w;
+    this.h = h;
   }
 
 
@@ -27,6 +26,16 @@ class BoxCollider extends Collider {
         this.ent.colliding(dt, t, dx, dy, angle);
       }
     }
+  }
+
+  debug() {
+    super.debug();
+    this.debugGraphics.drawRect(
+      -this.w/2,
+      -this.h/2,
+      this.w,
+      this.h
+    );
   }
 
 }

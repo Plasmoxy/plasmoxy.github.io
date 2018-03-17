@@ -72,7 +72,8 @@ function setup() {
   /* -- INIT GAME --- */
 
   a = new Entity('A', resources.rk.texture);
-  a.collider = new BoxCollider(a);
+  a.collider = new BoxCollider(a, 200, 200);
+  a.collider.debug();
   a.colliding = (dt, t, dx, dy, ang) => {
     console.log('COLLISION : ' + a.id + ' -> ' + t.id + ' : ' + ang*180/Math.PI);
     a.x += dx*dt*0.1;
@@ -82,8 +83,15 @@ function setup() {
 
   b = new Entity('B', resources.rk.texture);
   b.y = 100;
-  b.collider = new BoxCollider(b);
+  b.collider = new BoxCollider(b, b.width, b.height);
+  b.collider.debug();
   world.addChild(b);
+
+  c = new Entity('C', resources.rk.texture);
+  c.y = 150;
+  c.collider = new BoxCollider(c, c.width, c.height);
+  c.collider.debug();
+  world.addChild(c);
 
   dcontroller = new DebugEntityController(mkeys, a, 5);
 
@@ -103,6 +111,7 @@ function update() {
 function tick(dt) {
   dcontroller.update(dt);
   a.collider.detect(dt, b);
+  a.collider.detect(dt, c);
 }
 
 // add some other listeners in the end
