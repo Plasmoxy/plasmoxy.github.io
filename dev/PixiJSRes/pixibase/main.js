@@ -1,6 +1,8 @@
 /* pixibase by Plasmoxy */
 /* uses my pixialiases.js snippet for shorter names */
 
+console.log('--- The amazing Plasmoxy\'s game engine for Pixi, written in less than 20 days lmao ---');
+
 let fmeter = new FPSMeter();
 
 /* constants/aliases */
@@ -69,11 +71,17 @@ function setup() {
 
   /* -- INIT GAME --- */
 
-  a = new Entity(resources.rk.texture);
+  a = new Entity('A', resources.rk.texture);
   a.collider = new BoxCollider(a);
+  a.colliding = (dt, t, dx, dy, ang) => {
+    console.log('COLLISION : ' + a.id + ' -> ' + t.id + ' : ' + ang*180/Math.PI);
+    a.x += dx*dt*0.1;
+    a.y += dy*dt*0.1;
+  };
   world.addChild(a);
 
-  b = new Entity(resources.rk.texture);
+  b = new Entity('B', resources.rk.texture);
+  b.y = 100;
   b.collider = new BoxCollider(b);
   world.addChild(b);
 
@@ -94,7 +102,7 @@ function update() {
 
 function tick(dt) {
   dcontroller.update(dt);
-  a.collider.detect(b);
+  a.collider.detect(dt, b);
 }
 
 // add some other listeners in the end

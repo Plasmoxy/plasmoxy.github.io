@@ -1,4 +1,4 @@
-/* Entity class by Plasmoxy */
+/* Entity class by Plasmoxy, override this m8 */
 
 class Entity extends Container {
 
@@ -7,8 +7,10 @@ class Entity extends Container {
   get y() {return this.position.y;}
   set y(val) {this.position.y = val;}
 
-  constructor(sprite_texture) {
+  constructor(id, sprite_texture) {
     super();
+
+    this.id = id;
 
     // load sprite for entity
     this.sprite = new Sprite(sprite_texture);
@@ -19,6 +21,6 @@ class Entity extends Container {
   }
 
   update(dt) {}
-  colliding(target, x, y) {}
+  colliding(target, angle) {}
 
 }

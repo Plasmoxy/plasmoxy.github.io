@@ -5,6 +5,6 @@ class Collider {
   constructor(ent) {}
 
   // t = target entity
-  detect(t) {}
+  detect(dt, t) {}
 
 }
