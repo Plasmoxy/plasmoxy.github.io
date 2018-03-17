@@ -1,5 +1,8 @@
 /* Entity class by Plasmoxy, override this m8 */
 
+/* -> the basic advantage of my entity is based on Container polymorphism */
+/*   -> therefore, you can add effects, internal entity graphics, and all that stuff to it */
+
 class Entity extends Container {
 
   get x() {return this.position.x;}
@@ -21,6 +24,6 @@ class Entity extends Container {
   }
 
   update(dt) {}
-  colliding(target, angle) {}
+  colliding(dt, t, dx, dy, ang) {}
 
 }

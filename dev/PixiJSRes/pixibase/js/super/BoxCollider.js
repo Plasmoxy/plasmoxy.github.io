@@ -28,8 +28,9 @@ class BoxCollider extends Collider {
     }
   }
 
-  debug() {
-    super.debug();
+  debug(state) {
+    super.debug(state);
+    if (!this.debugGraphics) return; // add this check if dG are off
     this.debugGraphics.drawRect(
       -this.w/2,
       -this.h/2,
