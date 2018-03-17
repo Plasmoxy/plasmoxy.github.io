@@ -8,11 +8,8 @@ class Collider {
 
   // t = target entity
   detect(dt, t) {}
-
-  setupDebug() {
-
-  }
-  // this should display
+  
+  // this setups the debug graphics, call super.debug() on override to save 3 lines of code lmao
   debug() {
     this.debugGraphics = new PIXI.Graphics;
     this.debugGraphics.lineStyle(2, 0xFF0000, 1);

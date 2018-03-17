@@ -76,8 +76,8 @@ function setup() {
   a.collider.debug();
   a.colliding = (dt, t, dx, dy, ang) => {
     console.log('COLLISION : ' + a.id + ' -> ' + t.id + ' : ' + ang*180/Math.PI);
-    a.x += dx*dt*0.1;
-    a.y += dy*dt*0.1;
+    a.x += 5*Math.sin(ang);
+    a.y += 5*Math.cos(ang);
   };
   world.addChild(a);
 
