@@ -1,7 +1,11 @@
+/* Keyboard key detection class by Plasmoxy */
+
 class KeyboardKey {
   constructor(keyCode) {
     this.code = keyCode;
-    this.state = false; // down by default
+    this.down = false;
+
+    /* these ought to be overridden */
     this.press = undefined;
     this.release = undefined;
 
@@ -16,16 +20,16 @@ class KeyboardKey {
 
   downHandler(event) {
     if (event.keyCode === this.code) {
-      if (!this.state && this.pressed) this.pressed();
-      this.state = true;
+      if (!this.down && this.pressed) this.pressed();
+      this.down = true;
     }
 
-    /* prevent all handlers except F11 and F5 */
+    /* prevent all handlers except some imporant ones */
     switch (event.keyCode) {
-      case 122: break; // f5
-      case 116: break; // f11
-      case 27: break; // esc
-      case 123: break; // f12
+      case 122: break; // f5 - reset
+      case 116: break; // f11 - fullscreen
+      case 27: break; // esc - exit
+      case 123: break; // f12 - devtools
       default:
         event.preventDefault();
     }
@@ -33,8 +37,8 @@ class KeyboardKey {
 
   upHandler(event) {
     if (event.keyCode === this.code) {
-      if (this.state && this.released) this.released();
-      this.state = false;
+      if (this.down && this.released) this.released();
+      this.down = false;
     }
   }
 }
