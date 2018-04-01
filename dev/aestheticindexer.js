@@ -27,13 +27,9 @@ const folders = [
   'PixiJS/learningPixi'
 ];
 
-const btnTypes = [
-  'btn-outline-warning',
-  'btn-outline-primary',
-  'btn-outline-success',
-  'btn-outline-danger',
-  'btn-outline-info'
-];
+const dirButton = 'btn-warning text-dark';
+const fileButton = 'btn-outline-white';
+const titleStyle = 'bg-cyan blacc';
 
 function safeReadFile(file) {
   return (fs.existsSync(file) ? fs.readFileSync(file) : '')
@@ -114,7 +110,7 @@ function base(fname, localdescription) {return `
 
 <div id="root" class="container">
 
-  <div id="titleContainer" class="text-center bg-warning roundcorners mt-2 blacc p-2">
+  <div id="titleContainer" class="text-center roundcorners mt-2 p-2 `+titleStyle+`">
     <h1 class="title">`+fname+`</h1>
     <h4>`+localdescription+`</h4>
   </div>
@@ -179,7 +175,7 @@ folders.forEach(function(folder, folderIndex) {
       html += card(
         true,
         file,
-        btnTypes[0],
+        dirButton,
         safeReadFile(folder + path.sep + file + path.sep + 'desc.txt')
       );
   });
@@ -191,7 +187,7 @@ folders.forEach(function(folder, folderIndex) {
       html += card(
         false,
         file,
-        'btn-outline-white'
+        fileButton
       );
   });
 
