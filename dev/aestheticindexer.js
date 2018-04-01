@@ -6,26 +6,10 @@ const fs = require('fs');
 const path = require('path');
 
 // your folders here
-const folders = [
-  '.',
-  'CodingTrain',
-  'css',
-  'css/sololearn',
-  'Javascript',
-  'Javascript/gudobjects',
-  'Javascript/sololearn',
-  'Javascript/testing',
-  'nodejs',
-  'p5.js',
-  'three.js',
-  'three.js/learning',
-  'particlesjs',
-  'sockets',
-  'testing',
-  'trackingjs',
-  'PixiJS',
-  'PixiJS/learningPixi'
-];
+const folders = process.argv.slice();
+folders.splice(0, 2);
+
+console.log('AestheticLinker by Plasmoxy\nGOT ARGUMENTS : ' + folders + '\n');
 
 const dirButton = 'btn-warning text-dark';
 const fileButton = 'btn-outline-white';
