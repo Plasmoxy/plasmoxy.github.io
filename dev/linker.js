@@ -1,5 +1,6 @@
 /* Aesthetic linker js utility which creates cool folder structure index */
 /* generates html using nodejs */
+/* DO NOT USE, use the newer AestheticIndexer instead ! */
 
 const fs = require('fs');
 const path = require('path');
