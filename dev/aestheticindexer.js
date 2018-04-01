@@ -7,7 +7,24 @@ const path = require('path');
 
 // your folders here
 const folders = [
-  '.'
+  '.',
+  'CodingTrain',
+  'css',
+  'css/sololearn',
+  'Javascript',
+  'Javascript/gudobjects',
+  'Javascript/sololearn',
+  'Javascript/testing',
+  'nodejs',
+  'p5.js',
+  'three.js',
+  'three.js/learning',
+  'particlesjs',
+  'sockets',
+  'testing',
+  'trackingjs',
+  'PixiJS',
+  'PixiJS/learningPixi'
 ];
 
 const btnTypes = [

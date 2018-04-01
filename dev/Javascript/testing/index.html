@@ -1,163 +1,141 @@
+
 <!DOCTYPE html>
-<html>
-<!-- by Plasmoxy -->
-<!-- Generated using my aestheticLiner NodeJS script -->
+<html lang="en">
+
+<!-- Plasmoxy AestheticIndexer generated html index file -->
 
 <head>
-  <title>STRUCTURE</title>
-
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- mobile chrome stuff-->
   <meta name="theme-color" content="#00ffe0">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <link href="/assets/fonts/amatic_sc/amatic_sc.css" rel="stylesheet">
+  <!-- STYLES -->
+  <link rel="stylesheet" href="/assets/bs/bootstrap.min.css">
+
+
+  <!-- SCRIPTS -->
   <script src="/assets/jquery.min.js"></script>
-  <script src="/assets/js/pmxy.js"></script>
+  <script src="/assets/bs/bootstrap.min.js"></script>
+
   <style>
-    body {
-      font-family: 'Amatic SC', cursive;
-      background: #111;
-      color: white;
-    }
 
-    .nodeBreak {
-      display: none;
-    }
+  /* style for AestheticIndexer by Plasmoxy */
 
-    .centered {
-      text-align: center;
-    }
+  .roundcorners {
+      border-radius: 5px;
+      background: #0f0f0f;
+      padding: 15px;
+  }
 
-    #content {
-      margin: 1em 0.1em 1em 0.1em;
-      padding: 0em 0.1em 0em 0.1em;
-      text-align: center;
-      white-space: nowrap;
-      display: inline-block;
-    }
+  /* COLORS */
 
-    #content a{
-      transition: all 0.5s ease;
-    }
+  .text-cyan {
+    color: #00ffe0;
+  }
 
-    a {
-      display: inline-block;
-      color: #111;
-      font-size: 6em;
-      text-decoration: none;
-      margin: 0.1em 0.1em 0.1em 0.1em;
-      padding: 0 0.1em 0 0.1em;
-      background: white;
-      border: solid white 10px;
-      border-radius: 50px;
-    }
-    a:hover {
-      font-size: 8em;
-    }
+  .bg-cyan {
+    background: #00ffe0;
+  }
 
-    .dir {
-      background: #111;
-      border: solid #111 10px;
-    }
+  .blacc {
+    color: #0f0f0f;
+  }
 
-    #title {
-      text-align: center;
-    }
+  .bg-night {
+    background: #0f0f0f;
+  }
 
-    #titleText {
-      font-size: 150px;
-      color: #111;
-      background: #111;
-      border: solid #111 10px;
-      border-width: 0px 10px 0px 10px;
-      border-radius: 10px;
-      padding: 0 30px 0 30px;
-    }
+  .btn-outline-white {
+    border-color: white;
+    color: white;
+  }
 
-    .titleEmoji {
-      height: 5px;
-      width: 5px;
-    }
+  .btn-outline-white:hover {
+    background: white;
+    color: black;
+  }
 
-    #bacc {
-      transition: all 0.5s ease;
-      cursor: pointer;
-      width: 20em;
-    }
-    #bacc:hover {
-      width: 40em;
-    }
+  a {
+    color: #00ffe0;
+  }
+  a:hover {
+    color: #ffc107;
+  }
+
   </style>
+
 </head>
 
-<body>
-<div class="centered">
-<div id="content">
-<div style="text-align: center;">
-  <img id="bacc" onclick="window.history.back();" src="/assets/img/bacc.jpg"/>
+<body class="bg-night text-white">
+
+<div id="root" class="container">
+
+  <div id="titleContainer" class="text-center bg-warning roundcorners mt-2 blacc p-2">
+    <h1 class="title">testing</h1>
+    <h4></h4>
+  </div>
+
+
+  <div id="projrow" class="row"><!-- main row, let all just stick in here -->
+
+    <div class="col-lg-4 d-flex align-items-center p-3">
+      <div class="card bg-dark w-100">
+        <div class="card-header">
+          <a class="btn btn-outline-warning w-100" href="helloworld">helloworld</a>
+        </div>
+        
+            <div class="card-body">
+              
+            </div>
+            
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 d-flex align-items-center p-3">
+      <div class="card bg-dark w-100">
+        <div class="card-header">
+          <a class="btn btn-outline-warning w-100" href="readFile">readFile</a>
+        </div>
+        
+            <div class="card-body">
+              
+            </div>
+            
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 d-flex align-items-center p-3">
+      <div class="card bg-dark w-100">
+        <div class="card-header">
+          <a class="btn btn-outline-warning w-100" href="readFileAgain">readFileAgain</a>
+        </div>
+        
+            <div class="card-body">
+              
+            </div>
+            
+      </div>
+    </div>
+
+
+  </div> <!-- end projrow -->
+
+<footer>
+    <div class="row justify-content-center mt-5 mb-1">
+      <div class="card bg-dark text-white px-5">
+        <div class="card-body text-center p-1 px-5">
+          Bootstrap 4 project folder index generated using
+          <a href="https://github.com/Plasmoxy/AestheticIndexer">AestheticIndexer by Plasmoxy</a>
+        </div>
+      </div>
+    </div>
+</footer>
+
 </div>
-
-  <div id="title"><span id="titleText"> 👏 testing 👌</span>
-  </div><br>
-  <a class="dir" href="helloworld">helloworld</a><br class="nodeBreak">
-<br class="nodeBreak">
-<a class="dir" href="readFile">readFile</a><br class="nodeBreak">
-<a class="dir" href="readFileAgain">readFileAgain</a><br class="nodeBreak"><br class="nodeBreakOrdered">
-<br class="nodeBreak">
-<br class="nodeBreak">
-<br class="nodeBreak">
-<br class="nodeBreak"><br class="nodeBreakOrdered">
-</div></div>
-
-<div style="height: 200px;"></div>
-
-<script>
-var rainbow_hue = 180;
-var dirs = document.getElementsByClassName("dir");
-var title = document.getElementById("titleText");
-var initContentWidth = 0;
-
-setTimeout(function() {
-  initContentWidth = $('#content').width();
-}, 500);
-
-function oneLineLayout(state) {
-  $('.nodeBreakOrdered').each(function(i, obj) {
-    $(obj).css({'display': (state ? 'none' : 'inline')});
-  });
-  $('.nodeBreak').each(function(i, obj) {
-    $(obj).css({'display': (state ? 'inline' : 'none')});
-  });
-}
-
-
-
-setInterval(function() { // render thread
-
-  //rainbow
-  for(i = 0; i<dirs.length; i++) {
-    dirs[i].style.background = "hsl(" + rainbow_hue + ", 70%, 50%)";
-    dirs[i].style.borderColor = "hsl(" + rainbow_hue + ", 70%, 50%)";
-    title.style.background = "hsl(" + (rainbow_hue - 100)%360 + ", 70%, 50%)";
-    title.style.borderColor = "hsl(" + (rainbow_hue - 100)%360 + ", 70%, 50%)";
-  }
-  if (rainbow_hue > 0) {
-    rainbow_hue--;
-  } else {
-    rainbow_hue = 360;
-  }
-
-  $('meta[name=theme-color]').attr('content', pmxyjs.hslToHex(rainbow_hue, 70, 50));
-
-  // responsivity
-  if (  initContentWidth >= $(window).width()  ) {
-    oneLineLayout(true);
-  } else {
-    oneLineLayout(false);
-  }
-
-}, 100);
-</script>
 </body>
-
 </html>
