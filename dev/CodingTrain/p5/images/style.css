@@ -1,0 +1,17 @@
+body {
+  background: #111;
+  margin: 0px 0px 0px 0px;
+}
+
+.flexcenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+canvas {
+  display:
+}
