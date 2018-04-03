@@ -7,8 +7,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  createP('XD');
+  createCanvas(400, 400);
 }
 
 function draw() {
