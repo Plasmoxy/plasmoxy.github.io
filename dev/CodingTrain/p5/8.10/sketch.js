@@ -11,9 +11,8 @@ function setup() {
   canvas = createCanvas(600, 300);
   canvas.parent('canvasroot');
   canvas.mousePressed(canvasPressed);
-  createP('');
   
-  
+  select('#title').html('XD');
   
 }
 
