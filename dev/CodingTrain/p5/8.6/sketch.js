@@ -22,7 +22,7 @@ function preload() {
 }
 
 function setup() {
-  bgColor = color(150);
+  bgColor = color(10);
   canvas = createCanvas(600, 300);
   canvas.mousePressed(canvasPressed);
   createP('');
@@ -32,7 +32,7 @@ function setup() {
 }
 
 function draw() {
-  background(slider.value());
+  background(bgColor);
   b.draw();
 }
 
