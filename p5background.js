@@ -33,8 +33,6 @@ class Particle {
       ellipse(v.x, v.y, 30, 30);
     }
     ellipse(this.x, this.y, 40, 40);
-    
-    
   }
   
 }
