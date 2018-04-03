@@ -1,35 +1,50 @@
 /* uses p5.js | by Plasmoxy */
 
 let canvas, btn, slider;
-let bgColor = color()
+let bgColor;
+let title;
+let input, inputBtn;
 
 function preload() {
   
 }
 
 function setup() {
+  title = createElement('h1', 'DOM test');
+  
   canvas = createCanvas(600, 300);
+  canvas.mousePressed(canvasPressed);
   createP('');
   
-  btn = createButton('hello');
+  bgColor = color(150);
+  
+  btn = createButton('get value');
   btn.mousePressed(btnPressed);
   
-  slider = createSlider(10, 100, 47);
+  slider = createSlider(0, 255, 0);
+  
+  createP('type yor name:')
+  input = createInput();
+  
+  inputBtn = createButton('submit');
+  inputBtn.mousePressed(inputBtnPressed);
   
 }
 
 function draw() {
-  
+  background(slider.value());
+  fill(255, 0, 255);
+  ellipse(mouseX, mouseY, 50, 50);
 }
 
 function btnPressed() {
-  createP('XD');
+  createP('SLIDER VALUE: ' + slider.value());
 }
 
-function mousePressed() {
-  
+function inputBtnPressed() {
+  text()
 }
 
-function mouseReleased() {
-  
+function canvasPressed() {
+  createP('< mousePos : ' + mouseX + ' ' + mouseY);
 }
