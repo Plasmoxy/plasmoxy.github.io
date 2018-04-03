@@ -29,3 +29,9 @@ canvas {
   display: flex;
   justify-content: center;
 }
+
+#drop {
+  padding: 24px;
+  border: dashed 1px red;
+  width: 50%;
+}
