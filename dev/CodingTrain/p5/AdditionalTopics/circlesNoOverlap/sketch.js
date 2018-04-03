@@ -10,7 +10,7 @@ function setup() {
   
   let iterations = 0;
   const MAX_ITERATIONS = 10000;
-  const MAX_CIRCLES = 1000;
+  const MAX_CIRCLES = 2000;
   
   for (let i = 0; i < MAX_CIRCLES; i++) {
     
