@@ -13,8 +13,10 @@ class Ball {
 }
 
 
-let canvas;
-let bgColor;
+let canvas, bgColor;
+
+let slider;
+
 let b;
 
 function preload() {
@@ -27,7 +29,12 @@ function setup() {
   canvas.mousePressed(canvasPressed);
   createP('');
   
-  b = new Ball(100, 100, 30);
+  slider = createSlider(0, 300, 30);
+  slider.input( () => {
+    b.r = slider.value();
+  });
+  
+  b = new Ball(canvas.width/2, canvas.height/2, 30);
   
 }
 

@@ -1,7 +1,6 @@
 /* uses p5.js | by Plasmoxy */
 
-let canvas;
-let bgColor;
+let canvas, bgColor;
 
 function preload() {
   
