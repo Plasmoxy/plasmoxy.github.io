@@ -2,15 +2,10 @@
 
 let canvas, bgColor;
 
-function preload() {
-  
-}
-
 function setup() {
   bgColor = color(10);
   canvas = createCanvas(600, 300);
   canvas.parent('canvasroot');
-  canvas.mousePressed(canvasPressed);
   
   
   
@@ -18,9 +13,5 @@ function setup() {
 
 function draw() {
   background(bgColor);
-  
-}
-
-function canvasPressed() {
   
 }
