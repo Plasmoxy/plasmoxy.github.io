@@ -35,6 +35,8 @@ function draw() {
   background(slider.value());
   fill(255, 0, 255);
   ellipse(mouseX, mouseY, 50, 50);
+  textSize(20);
+  text('Hello, ' + input.value(), 30, 50);
 }
 
 function btnPressed() {
@@ -42,7 +44,7 @@ function btnPressed() {
 }
 
 function inputBtnPressed() {
-  text()
+  createP(input.value() + ' provides unaccepable behaviour');
 }
 
 function canvasPressed() {
