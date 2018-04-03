@@ -1,7 +1,7 @@
 /* uses p5.js | by Plasmoxy */
 
 let canvas, bgColor;
-let part;
+let particles = [];
 
 function preload() {
   
@@ -12,14 +12,20 @@ function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.mousePressed(canvasPressed);
   
-  part = new Particle(width/2, height/2);
+  for (let i = 0; i<20; i++) {
+    particles.push(new Particle(width/2, height/2));
+  }
+  
   
 }
 
 function draw() {
   background(bgColor);
-  part.update();
-  part.draw();
+  
+  for (let part of particles) {
+    part.update();
+    part.draw();
+  }
 }
 
 function canvasPressed() {
