@@ -1,0 +1,2 @@
+This generates as much random circles as it can, so that
+none of those circles overlap with another
