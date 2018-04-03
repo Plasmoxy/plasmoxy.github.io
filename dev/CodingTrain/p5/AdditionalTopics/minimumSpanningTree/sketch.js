@@ -43,9 +43,7 @@ function draw() {
   let unreached = [];
   
   // all unreached
-  for (let v of vectors) {
-    unreached.push(v);
-  }
+  unreached = vectors.slice();
   
   // push first from unreached
   reached.push(unreached[0]);
