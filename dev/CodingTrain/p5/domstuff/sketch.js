@@ -1,20 +1,23 @@
 /* uses p5.js | by Plasmoxy */
 
-
+let canvas;
 
 function preload() {
   
 }
 
 function setup() {
-  createCanvas(400, 400);
+  canvas = createCanvas(1000, 600);
+}
+
+function draw() {
   
 }
 
 function mousePressed() {
-  createP('XD');
+  
 }
 
-function draw() {
+function mouseReleased() {
   
 }
