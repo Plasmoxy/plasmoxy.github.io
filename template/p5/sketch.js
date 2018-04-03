@@ -1,24 +1,25 @@
-/* uses p5.js | by Plasmoxy */
-
-let canvas;
-
-function preload() {
-  
+body {
+  font-family: Consolas, sans-serif;
+  background: #111;
+  margin: 0;
+  padding: 20px;
+  color: white;
 }
 
-function setup() {
-  canvas = createCanvas(600, 400);
-  createP('');
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
 }
 
-function draw() {
-  
+.text-center {
+  text-align: center;
 }
 
-function mousePressed() {
-  
-}
-
-function mouseReleased() {
-  
+canvas {
+  background: #0f0f0f;
+  border: 1px solid #00ffe8;
 }
