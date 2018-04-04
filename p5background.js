@@ -28,7 +28,7 @@ class Particle {
   draw() {
     
     noStroke();
-    fill(0, 100);   
+    fill(0, 255, 255, 100);   
     for (let v of this.history) {
       ellipse(v.x, v.y, 30, 30);
     }
@@ -48,7 +48,7 @@ function setup() {
   canvas.style('z-index', '-12');
   
   for (let i = 0; i<20; i++) {
-    particles.push(new Particle(width/2, height/2));
+    particles.push(new Particle(width/2, height*0.8));
   }
   
   
