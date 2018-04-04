@@ -5,9 +5,19 @@ let canvas, bgColor;
 // arguments keyword variable of a JS function contains its arguments
 function sum() {
   let val = 0;
+  
   for (let arg of arguments) {
-    val += arg;
+    if (arg instanceof Array) {
+      for (let num of arg) {
+        val += num;
+      }
+    } else {
+      val += arg;
+    }
   }
+  
+  
+  
   return val;
 }
 
