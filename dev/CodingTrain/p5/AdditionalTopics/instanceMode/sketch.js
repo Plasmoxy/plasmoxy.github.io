@@ -10,7 +10,7 @@ let sketch = function(p) {
   }
   
   p.draw = function() {
-    ellipse(50,50,50,50);
+    p.ellipse(50,50,50,50);
   }
   
 }
