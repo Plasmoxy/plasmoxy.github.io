@@ -36,7 +36,7 @@ class Particle {
   draw() {
 
     noStroke();
-    fill(0, 255, 255, 100);
+    fill(255, 200, 0, 150); 
     for (let v of this.history) {
       ellipse(v.x, v.y, 10, 10);
     }
