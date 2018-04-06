@@ -14,10 +14,10 @@ class Particle {
     this.x += random(-20, 20);
     this.y += random(-20, 20);
 
-    if (this.x > width) this.x -= 10;
-    if (this.y > height) this.y -= 10;
-    if (this.x < 0) this.x += 10;
-    if (this.y < 0) this.y += 10;
+    if (this.x > width - 20) this.x -= 10;
+    if (this.y > height - 20) this.y -= 10;
+    if (this.x < 20) this.x += 10;
+    if (this.y < 20) this.y += 10;
 
     this.history.push(createVector(this.x, this.y));
 
@@ -36,7 +36,7 @@ class Particle {
   draw() {
 
     noStroke();
-    fill(255, 200, 0, 150); 
+    fill(255, 200, 0, 150);
     for (let v of this.history) {
       ellipse(v.x, v.y, 10, 10);
     }
