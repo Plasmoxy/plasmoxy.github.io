@@ -20,6 +20,11 @@
   background: #00ffe0;
 }
 
+.bg-blacc {
+  background: #0f0f0f;
+}
+
+
 .bg-darker {
   background: #262a2f;
 }
@@ -27,6 +32,7 @@
 .blacc {
   color: #0f0f0f;
 }
+
 
 .nightbg {
   background: #0f0f0f;
