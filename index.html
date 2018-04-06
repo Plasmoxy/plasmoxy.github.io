@@ -25,10 +25,13 @@
   <script src="/assets/jquery.min.js"></script>
   <script src="/assets/bs/bootstrap.min.js"></script>
   <script src="/assets/js/pmxy.js"></script>
+  <!--
   <script src="/assets/js/p5/p5.min.js"></script>
   <script src="/assets/js/p5/p5.dom.min.js"></script>
+  -->
 
 </head>
+
 <body>
 
 <div id="loading_div" class="pmxyloader-root">
@@ -96,11 +99,17 @@
   </div> <!-- /root -->
 </div> <!-- /superroot -->
 
+<div id="particles"></div>
+
 <script src="rainbow.js"></script>
 <script src="loading.js"></script>
 
 <!-- launch up the p5 background -->
-<script src="p5background.js"></script>
+<!-- <script src="p5background.js"></script> -->
+<script src="/assets/js/particles.min.js"></script>
+<script>
+  particlesJS.load("particles", "particlesjs-config.json");
+</script>
 
 </body>
 </html>
