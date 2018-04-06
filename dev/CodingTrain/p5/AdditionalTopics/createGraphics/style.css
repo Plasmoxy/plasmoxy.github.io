@@ -1,0 +1,26 @@
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.text-center {
+  text-align: center;
+}
+
+body {
+  font-family: Consolas, sans-serif;
+  background: #111;
+  margin: 0;
+  color: white;
+  overflow: hide;
+  cursor: none;
+}
+
+canvas {
+  background: #0f0f0f;
+}
