@@ -9,7 +9,7 @@ function setup() {
 
 function getWeatherData(city, callback) {
   loadJSON(
-    'http://api.openweathermap.org/data/2.5/weather?q='
+    'https://api.openweathermap.org/data/2.5/weather?q='
     +city
     +'&appid=829d5a1402e3d3406b70ef9c8028f73f&units=metric'
   , callback);
