@@ -11,8 +11,8 @@ class Particle {
   }
 
   update() {
-    this.x += random(-20, 20);
-    this.y += random(-20, 20);
+    this.x += random(-10, 10);
+    this.y += random(-10, 10);
 
     if (this.x > width - 20) this.x -= 10;
     if (this.y > height - 20) this.y -= 10;
@@ -36,7 +36,7 @@ class Particle {
   draw() {
 
     noStroke();
-    fill(255, 200, 0, 150);
+    fill(255, 50);
     for (let v of this.history) {
       ellipse(v.x, v.y, 10, 10);
     }
@@ -53,9 +53,9 @@ function setup() {
   bgColor = color(50);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.position(0,0);
-  canvas.style('z-index', '-12');
+  canvas.style('z-index', '-8');
 
-  for (let i = 0; i<20; i++) {
+  for (let i = 0; i<10; i++) {
     particles.push(new Particle(random(width), random(height), true));
   }
 
