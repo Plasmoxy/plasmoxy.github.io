@@ -2,10 +2,6 @@
 
 
 
-function preload() {
-  
-}
-
 function setup() {
   noCanvas();
 }
