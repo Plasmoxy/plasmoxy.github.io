@@ -21,14 +21,14 @@ class Particle {
 
     this.history.push(createVector(this.x, this.y));
 
-    if (this.history.length > 25) {
+    if (this.history.length > 10) {
       this.history.splice(0, 1);
     }
 
     // follow mouse
     if (this.isFollower) {
-      this.x += (mouseX - this.x)*0.02;
-      this.y += (mouseY - this.y)*0.02;
+      this.x += (mouseX - this.x)*0.01;
+      this.y += (mouseY - this.y)*0.01;
     }
 
   }
@@ -36,11 +36,11 @@ class Particle {
   draw() {
 
     noStroke();
-    fill(255, 50);
+    fill(255, 255, 0, 200);
     for (let v of this.history) {
-      ellipse(v.x, v.y, 10, 10);
+      ellipse(v.x, v.y, 3, 3);
     }
-    ellipse(this.x, this.y, 10, 10);
+    ellipse(this.x, this.y, 6, 6);
   }
 
 }
