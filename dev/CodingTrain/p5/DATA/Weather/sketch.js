@@ -3,7 +3,7 @@
 let temp, winddeg, humidity;
 
 function setup() {
-  createCanvas(350, 100);
+  createCanvas(325, 100);
   select('#cityinput').input(loadData);
   textAlign(CENTER);
 }
@@ -25,6 +25,7 @@ function gotData(data) {
   temp = Number(data.main.temp);
   humidity = Number(data.main.humidity);
   winddeg = Number(data.wind.deg);
+  select('#weather').html(data.weather[0].description);
   select('#info').html(
     'Temperature = ' + temp + ' °C<br>'
     +'( min '+data.main.temp_min+' °C | max '+data.main.temp_max+' °C )<br>'
@@ -38,8 +39,10 @@ function gotData(data) {
 function loadError() {
   select('#info').html('No such city.');
   select('#countrycode').html('');
+  select('#weather').html('');
   temp = undefined;
   humidity = undefined;
+  winddeg = undefined;
 }
 
 function draw() {
@@ -68,7 +71,18 @@ function draw() {
   if (winddeg) { push();
     noFill();
     stroke(0, 255, 255);
+    ellipse(275, 50, 50, 50);
+    let dx = 20*Math.cos(winddeg);
+    let dy = 20*Math.sin(winddeg);
+    line(275, 50, 275 + dx, 50 + dy);
 
+    textSize(15);
+    fill(255, 255, 0);
+    noStroke();
+    text('N', 275, 20);
+    text('S', 275, 90);
+    text('W', 238, 55);
+    text('E', 310, 55);
   pop();}
 
 
