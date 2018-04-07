@@ -22,3 +22,11 @@ body {
 canvas {
   background: #0f0f0f;
 }
+
+a {
+  color: #00f7ff;
+}
+
+a:hover {
+  color: #ff00fc;
+}

@@ -62,7 +62,13 @@ function draw() {
     rect(150, 0, 25, 99);
 
     fill(0, 255, 255);
-    rect(150, humipixels, 25, 100-humipixels);
+    rect(150, 100, 25, -humipixels);
+  pop();}
+
+  if (winddeg) { push();
+    noFill();
+    stroke(0, 255, 255);
+
   pop();}
 
 
