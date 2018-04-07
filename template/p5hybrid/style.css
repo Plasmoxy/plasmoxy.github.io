@@ -15,17 +15,10 @@
 body {
   font-family: Consolas, sans-serif;
   background: #08080d;
-  margin: 0;
-  padding: 20px;
+  margin: 20px;
   color: white;
 }
 
 canvas {
   background: #0f0f0f;
-  border: 1px solid #00ffe8;
-}
-
-#ui {
-  display: flex;
-  justify-content: center;
 }
