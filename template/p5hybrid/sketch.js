@@ -1,5 +1,4 @@
-/* uses p5.js | by Plasmoxy */
-
+/* uses p5.js | by Plasmoxy | @template=hybrid */
 
 
 function setup() {
