@@ -2,7 +2,7 @@
 
 function getRelated(word, callback, error) {
   loadJSON(
-    'http://api.wordnik.com:80/v4/word.json/'
+    'https://api.wordnik.com:80/v4/word.json/'
     +word
     +'/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'
   ,callback,error);
