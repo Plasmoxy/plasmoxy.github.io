@@ -10,7 +10,8 @@ function getRelated(word, callback, error) {
 
 function setup() {
   noCanvas();
-  select('#word').input(loadData);
+  select('#word').changed(loadData);
+  select('#submit').mousePressed(loadData);
 }
 
 function loadData() {
@@ -18,6 +19,7 @@ function loadData() {
 }
 
 function gotData(data) {
+  select('#synonyms').html(''); // clear
   console.log(data);
   for (let obj of data) {
     if (obj.relationshipType == 'synonym') {
