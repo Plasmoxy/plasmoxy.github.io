@@ -31,8 +31,8 @@ function gotData(data) {
 
 }
 
-function gotError() {
-  select('#synonyms').html('');
+function gotError(err) {
+  console.log(err);
 }
 
 function draw() {}
