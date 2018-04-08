@@ -3,7 +3,7 @@
 
 function setup() {
   let c = createCanvas(200, 200);
-  loadJSON('http://api.open-notify.org/astros.json', gotData);
+  loadJSON('https://api.open-notify.org/astros.json', gotData);
 }
 
 function gotData(data) {
