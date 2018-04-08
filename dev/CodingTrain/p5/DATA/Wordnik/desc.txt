@@ -1,1 +1,1 @@
-Wordnik API testing wordszzzs
+<span style="color:#24ff00;">A simple synonym query !</span>
