@@ -35,7 +35,7 @@
 
 
 .nightbg {
-  background: #0f0f0f;
+  background: #08080d;
 }
 
 /* specific */
@@ -47,10 +47,15 @@ a:hover {
   color: #ffc107;
 }
 
+hr {
+  background: #ffc700
+}
+
  /* #08080d */
 body {
   background: #08080d;
   color: white;
+  overflow-x: hidden;
 }
 
 #superroot {
@@ -84,6 +89,7 @@ body {
   top: 0;
   z-index: -10;
   width: 100%;
+  margin: 0;
 }
 
 @media only screen and (max-width: 768px) {
