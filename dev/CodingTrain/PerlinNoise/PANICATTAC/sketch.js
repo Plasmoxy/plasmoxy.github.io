@@ -4,12 +4,31 @@ let canvas, bgColor;
 
 let xoff = 0;
 
+let messages = [
+  "dud pls help",
+  "y u no do somethin",
+  "fag",
+  "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "aayayayayayayayayay",
+  "this is really depressing",
+  "Lorem ipsum dolor sit amet",
+  "do you know da wae",
+  "HELP ME"
+];
+
+let msg;
+
+function randomMsg() {
+  msg = random(messages);
+}
+
 function setup() {
   bgColor = color(10);
   canvas = createCanvas(windowWidth, windowHeight);
   stroke(255);
   fill(255);
-
+  randomMsg();
+  setInterval(randomMsg, 2000);
 }
 
 function draw() {
@@ -25,5 +44,5 @@ function draw() {
   textSize(30);
   textAlign(CENTER);
   ellipse(x, y, 24, 24);
-  text("dud pls help", x, y + 50);
+  text(msg, x, y + 50);
 }
