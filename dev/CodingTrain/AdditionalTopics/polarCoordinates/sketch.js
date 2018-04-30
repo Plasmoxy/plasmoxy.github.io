@@ -33,7 +33,7 @@ let tickActivated = false;
 
 function setup() {
   bgColor = color(10);
-  canvas = createCanvas(1920, 1080);
+  canvas = createCanvas(windowWidth, windowHeight);
   //pixelDensity(2);
   strokeWeight(32);
 
