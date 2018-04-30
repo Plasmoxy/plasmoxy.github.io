@@ -1,5 +1,10 @@
 /* uses p5.js | by Plasmoxy */
 
+let WIDTH = 0;
+let HEIGHT = 0;
+
+let kolore = 0;
+
 
 class PolarVector {
   constructor(r, ang) {
@@ -24,28 +29,43 @@ let pv;
 let dr = 0;
 let a = 255;
 
+let tickActivated = false;
+
 function setup() {
   bgColor = color(10);
-  canvas = createCanvas(windowWidth, windowHeight);
-  strokeWeight(2);
-  
+  canvas = createCanvas(1920, 1080);
+  //pixelDensity(2);
+  strokeWeight(32);
+
   pv = new PolarVector(0, 0);
+  updateWH();
+  setInterval(quickTick, 1);
+}
+
+function quickTick() {
+
+  //background(bgColor);
+  stroke(255);
+
+  let cv = toCart(pv);
+
+  //line(0, 0, cv.x, cv.y);
+  stroke(0, kolore%255, kolore%255, a);
+  point(WIDTH/2 + cv.x, HEIGHT/2 + cv.y);
+
+  pv.ang += 0.1;
+  pv.r += dr;
+
+  dr += 0.00001;
+  a -= 0.02;
+  kolore += 1;
 }
 
 function draw() {
-  //background(bgColor);
-  stroke(255);
-  
-  translate(width/2, height/2);
-  let cv = toCart(pv);
-  
-  //line(0, 0, cv.x, cv.y);
-  stroke(255, 0, 255, a);
-  point(cv.x, cv.y);
-  
-  pv.ang += 0.1;
-  pv.r += dr;
-  
-  dr += 0.0005;
-  a -= 0.1;
+  updateWH();
+}
+
+function updateWH() {
+  WIDTH = width;
+  HEIGHT = height;
 }
