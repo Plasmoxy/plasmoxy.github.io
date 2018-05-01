@@ -9,3 +9,7 @@ let biggerThan = (num) => {
 
 console.log(arr.filter(isEven));
 console.log(arr.filter(biggerThan(2)))
+
+let str = "It was   a dark and cold night.";
+let words = str.split(/\W+/).filter(s => s.length > 3);
+console.log(words);
