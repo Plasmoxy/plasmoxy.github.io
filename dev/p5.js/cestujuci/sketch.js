@@ -44,6 +44,10 @@ function draw() {
 }
 
 function mousePressed() {
-  points.push(new Point(mouseX, mouseY))
-  pointCount = points.length
+  if (mouseX > 0 && mouseY > 0 && mouseX < canvas.width && mouseY < canvas.height) {
+    let pt = new Point(mouseX, mouseY)
+    points.push(pt)
+    pointCount = points.length
+    console.log(pt)
+  }
 }
