@@ -87,8 +87,7 @@ function setup() {
   canvas.parent('canvasroot');
 
   perm = createGraphics(windowWidth - 50, windowHeight - 100);
-
-  $("#calculate").click(() => {calc()})
+  
   $("#reset").click(() => {
     points = []
     perm.clear()
@@ -112,5 +111,6 @@ function mousePressed() {
   if (mouseX > 0 && mouseY > 0 && mouseX < canvas.width && mouseY < canvas.height) {
     let pt = new Point(mouseX, mouseY)
     points.push(pt)
+    calc()
   }
 }
